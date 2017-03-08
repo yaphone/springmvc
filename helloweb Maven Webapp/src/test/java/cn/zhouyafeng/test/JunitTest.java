@@ -1,13 +1,14 @@
 package cn.zhouyafeng.test;
 
 import org.junit.Test;
+import org.mybatis.spring.SqlSessionFactoryBean;
 
 import cn.zhouyafeng.blog.entity.BlogEntity;
 import cn.zhouyafeng.utils.JackSonUtils;
 
 public class JunitTest {
 
-	@Test
+	// @Test
 	public void helloWorld() {
 		BlogEntity blogEntity = new BlogEntity();
 		blogEntity.setBlogTitle("≤‚ ‘");
@@ -18,5 +19,11 @@ public class JunitTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	@Test
+	public void myBatisTest() {
+		SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
+
 	}
 }

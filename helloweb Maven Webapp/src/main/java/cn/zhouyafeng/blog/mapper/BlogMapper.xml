@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yihaomen.mybatis.models.UserMapper">
+
+	<resultMap type="cn.zhouyafeng.blog.entity.BlogEntity" id="BlogResult">    
+	    <id column="id" property="id"/>    
+	    <result column="blog_title" property="blogTitle"/>      
+	</resultMap> 
+
+    <select id="selectUserByID" parameterType="int" resultMap="BlogResult">
+        select * from `blog_blog` where id = #{id}
+    </select>
+</mapper>

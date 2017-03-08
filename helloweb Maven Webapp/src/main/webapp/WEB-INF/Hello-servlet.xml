@@ -33,14 +33,31 @@
     <!-- 处理静态文件 -->
     <mvc:resources mapping="/html/**" location="/html/blog/" />
 	
+	
+	<!-- 数据库库文件 -->  
+	<bean id="jdbcConfig" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">  
+	    <property name="locations" value="classpath:db.properties" />  
+	</bean>  
+	<!--配置dbcp类型数据源 -->  
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">  
+	    <property name="driverClassName" value="${jdbc.driver}" />  
+	    <property name="url" value="${jdbc.url}" />  
+	    <property name="username" value="${jdbc.username}" />  
+	    <property name="password" value="${jdbc.password}" />  
+	</bean> 
+	
 	<!-- Mybatis整合 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-	  <property name="dataSource" ref="dataSource" />
-	</bean>
-	 
-	<!-- 定时任务 -->	
-	<!--
-	<task:annotation-driven scheduler="myScheduler"/>
-	<task:scheduler id="myScheduler" pool-size="5"/>  
-	 -->	
+        <property name="dataSource" ref="dataSource"/>
+         <!-- 自动扫描mapper.xml文件 -->  
+        <property name="mapperLocations" value="classpath:cn/zhouyafeng/blog/mapper/*.xml"></property> 
+    </bean>
+    
+    <!-- DAO接口所在包名，Spring会自动查找其下的类 -->  
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">  
+        <property name="basePackage" value="cn.zhouyafeng.blog.dao" />  
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>  
+    </bean>  
+  
+	
 </beans>
