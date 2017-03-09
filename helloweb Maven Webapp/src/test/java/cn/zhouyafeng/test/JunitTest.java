@@ -1,20 +1,25 @@
 package cn.zhouyafeng.test;
 
-import org.junit.Test;
-import org.mybatis.spring.SqlSessionFactoryBean;
+import javax.annotation.Resource;
 
-import cn.zhouyafeng.blog.entity.BlogEntity;
+import org.junit.Test;
+
+import cn.zhouyafeng.blog.entity.Blog;
+import cn.zhouyafeng.blog.impl.BlogService;
 import cn.zhouyafeng.utils.JackSonUtils;
 
 public class JunitTest {
 
+	@Resource
+	private BlogService blogService = null;
+
 	// @Test
 	public void helloWorld() {
-		BlogEntity blogEntity = new BlogEntity();
-		blogEntity.setBlogTitle("≤‚ ‘");
-		blogEntity.setId("123");
+		Blog blog = new Blog();
+		blog.setBlogTitle("≤‚ ‘");
+		blog.setId(123);
 		try {
-			System.out.println(JackSonUtils.obj2json(blogEntity));
+			System.out.println(JackSonUtils.obj2json(blog));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -23,7 +28,12 @@ public class JunitTest {
 
 	@Test
 	public void myBatisTest() {
-		SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
-
+		Blog blog = blogService.getBlogEntityById("1");
+		try {
+			System.out.println(JackSonUtils.obj2json(blog));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

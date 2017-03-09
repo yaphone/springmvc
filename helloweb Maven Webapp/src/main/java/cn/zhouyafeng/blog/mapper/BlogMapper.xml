@@ -1,15 +1,159 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
-<mapper namespace="com.yihaomen.mybatis.models.UserMapper">
-
-	<resultMap type="cn.zhouyafeng.blog.entity.BlogEntity" id="BlogResult">    
-	    <id column="id" property="id"/>    
-	    <result column="blog_title" property="blogTitle"/>      
-	</resultMap> 
-
-    <select id="selectUserByID" parameterType="int" resultMap="BlogResult">
-        select * from `blog_blog` where id = #{id}
-    </select>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.zhouyafeng.blog.dao.BlogMapper" >
+  <resultMap id="BaseResultMap" type="cn.zhouyafeng.blog.entity.Blog" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="blog_title" property="blogTitle" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="blog_type" property="blogType" jdbcType="VARCHAR" />
+    <result column="blog_tag" property="blogTag" jdbcType="VARCHAR" />
+    <result column="music" property="music" jdbcType="VARCHAR" />
+    <result column="reading_count" property="readingCount" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="cn.zhouyafeng.blog.entity.Blog" extends="BaseResultMap" >
+    <result column="blog_content" property="blogContent" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, blog_title, update_time, modify_time, blog_type, blog_tag, music, reading_count
+  </sql>
+  <sql id="Blob_Column_List" >
+    blog_content
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from blog_blog
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from blog_blog
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.zhouyafeng.blog.entity.Blog" >
+    insert into blog_blog (id, blog_title, update_time, 
+      modify_time, blog_type, blog_tag, 
+      music, reading_count, blog_content
+      )
+    values (#{id,jdbcType=INTEGER}, #{blogTitle,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{blogType,jdbcType=VARCHAR}, #{blogTag,jdbcType=VARCHAR}, 
+      #{music,jdbcType=VARCHAR}, #{readingCount,jdbcType=INTEGER}, #{blogContent,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.zhouyafeng.blog.entity.Blog" >
+    insert into blog_blog
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="blogTitle != null" >
+        blog_title,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="blogType != null" >
+        blog_type,
+      </if>
+      <if test="blogTag != null" >
+        blog_tag,
+      </if>
+      <if test="music != null" >
+        music,
+      </if>
+      <if test="readingCount != null" >
+        reading_count,
+      </if>
+      <if test="blogContent != null" >
+        blog_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="blogTitle != null" >
+        #{blogTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="blogType != null" >
+        #{blogType,jdbcType=VARCHAR},
+      </if>
+      <if test="blogTag != null" >
+        #{blogTag,jdbcType=VARCHAR},
+      </if>
+      <if test="music != null" >
+        #{music,jdbcType=VARCHAR},
+      </if>
+      <if test="readingCount != null" >
+        #{readingCount,jdbcType=INTEGER},
+      </if>
+      <if test="blogContent != null" >
+        #{blogContent,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.zhouyafeng.blog.entity.Blog" >
+    update blog_blog
+    <set >
+      <if test="blogTitle != null" >
+        blog_title = #{blogTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="blogType != null" >
+        blog_type = #{blogType,jdbcType=VARCHAR},
+      </if>
+      <if test="blogTag != null" >
+        blog_tag = #{blogTag,jdbcType=VARCHAR},
+      </if>
+      <if test="music != null" >
+        music = #{music,jdbcType=VARCHAR},
+      </if>
+      <if test="readingCount != null" >
+        reading_count = #{readingCount,jdbcType=INTEGER},
+      </if>
+      <if test="blogContent != null" >
+        blog_content = #{blogContent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="cn.zhouyafeng.blog.entity.Blog" >
+    update blog_blog
+    set blog_title = #{blogTitle,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      blog_type = #{blogType,jdbcType=VARCHAR},
+      blog_tag = #{blogTag,jdbcType=VARCHAR},
+      music = #{music,jdbcType=VARCHAR},
+      reading_count = #{readingCount,jdbcType=INTEGER},
+      blog_content = #{blogContent,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.zhouyafeng.blog.entity.Blog" >
+    update blog_blog
+    set blog_title = #{blogTitle,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      blog_type = #{blogType,jdbcType=VARCHAR},
+      blog_tag = #{blogTag,jdbcType=VARCHAR},
+      music = #{music,jdbcType=VARCHAR},
+      reading_count = #{readingCount,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
 </mapper>
