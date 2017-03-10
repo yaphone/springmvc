@@ -9,6 +9,12 @@
         <param-name>contextConfigLocation</param-name>  
         <param-value>classpath:config/jdbc.xml</param-value>  
     </context-param>   
+    
+    <!-- Spring和mybatis的配置文件 -->  
+    <context-param>  
+        <param-name>contextConfigLocation</param-name>  
+        <param-value>classpath:config/spring-mybatis.xml</param-value>  
+    </context-param>  
 	
 	<!-- spring监听器（第二启动），监听springMvc环境 -->
     <listener>  

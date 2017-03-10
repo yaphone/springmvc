@@ -20,4 +20,9 @@ public class BlogService implements IBlogService {
 		return blog;
 	}
 
+	@Override
+	public String test() {
+		return "HelloWorld";
+	}
+
 }

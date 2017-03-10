@@ -19,7 +19,7 @@
     
     <!-- 配置数据源,包含connector的驱动名称，地址，用户名以及密码 ,除了c3p0其实还有dbcp这种方式,但是hibernate官方已经宣布不再支持dbcp了-->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-        <property name="driverClassName" value="${jdbc.driverClassName}" />
+        <property name="driverClassName" value="${jdbc.driver}" />
         <property name="url" value="${jdbc.url}" />
         <property name="username" value="${jdbc.username}" />
         <property name="password" value="${jdbc.password}" />
@@ -29,5 +29,10 @@
     <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource" />
     </bean>  
+	
+	<!-- 自动扫描组件，需要把controller去掉，否则影响事务管理 -->  
+    <context:component-scan base-package="com.springmvc">
+        <context:exclude-filter type="regex" expression="com.spring.web.*" />
+    </context:component-scan>   
 
 </beans>
