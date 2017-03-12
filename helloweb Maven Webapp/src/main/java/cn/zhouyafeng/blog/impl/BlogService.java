@@ -26,13 +26,9 @@ public class BlogService implements IBlogService {
 	}
 
 	@Override
-	public String test() {
-		return "HelloWorld";
-	}
-
-	@Override
 	public List<Blog> getAllBlogEntity() {
-		return blogEntityMapper.getAllBlogEntity();
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

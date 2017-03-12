@@ -8,6 +8,4 @@ public interface IBlogService {
 	public Blog getBlogEntityById(String id);
 
 	public List<Blog> getAllBlogEntity();
-
-	public String test();
 }

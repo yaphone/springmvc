@@ -1,5 +1,7 @@
 package cn.zhouyafeng.blog.controller;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -18,7 +20,7 @@ public class BlogController {
 	@RequestMapping(value = "/hello", produces = "text/html;charset=UTF-8")
 	@ResponseBody
 	public String printWelcome() {
-		Blog blog = blogService.getBlogEntityById("1");
+		List<Blog> blog = blogService.getAllBlogEntity();
 		String result = null;
 		try {
 			result = JackSonUtils.obj2json(blog);
