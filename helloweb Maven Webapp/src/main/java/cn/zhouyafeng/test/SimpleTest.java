@@ -1,5 +1,7 @@
 package cn.zhouyafeng.test;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.junit.Test;
@@ -16,8 +18,7 @@ public class SimpleTest extends BaseJunitTest {
 
 	@Test
 	public void JacksonUtilTest() {
-		Blog blog = blogService.getBlogEntityById("1");
-		System.out.println(blog);
+		List<Blog> blog = blogService.getAllBlogEntity();
 		try {
 			System.out.println(JackSonUtils.obj2json(blog));
 		} catch (Exception e) {

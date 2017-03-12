@@ -1,277 +1,449 @@
-<html>
-<head>
-  <!-- META DATA -->
-	<meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="">
-    <meta name="author" content="">
+<!DOCTYPE html>
+<html lang="cn" dir="ltr" class="no-js">
 
-	<title></title>
-  
-	<!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css"  type="text/css">
-	
-	<!-- Owl Carousel Assets -->
-    <link href="owl-carousel/owl.carousel.css" rel="stylesheet">
-    <!-- <link href="owl-carousel/owl.theme.css" rel="stylesheet"> -->
-	
-	<!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
-	
-	<!-- Custom Fonts -->
-    <link rel="stylesheet" href="font-awesome-4.4.0/css/font-awesome.min.css"  type="text/css">
-	<!---<link href='http://fonts.googleapis.com/css?family=Asap:400,700' rel='stylesheet' type='text/css'>--->
-	
-	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="js/html5shiv.js"></script>
-        <script src="js/respond.min.js"></script>
-    <![endif]-->
-	
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="maximum-scale=1.0,width=device-width,initial-scale=1.0,user-scalable=no">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>异步 </title>
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="assets/css/nprogress.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/nivo-slider.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="assets/css/default.css" type="text/css" media="screen" />
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.nivo.slider.pack.js"></script>
+    <script src="assets/js/nprogress.js"></script>
 </head>
 
-<body class="sub-page">	
-	<!-- /////////////////////////////////////////Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand page-scroll" href="index.html">JUSTICE</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                   <li>
-                        <a class="page-scroll" href="index.html">Home</a>
-                    </li>
-					<li>
-                        <a class="page-scroll" href="archive.html">Blog</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="single.html">About</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="contact.html">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">
+              Toggle navigation
+            </span>
+            <span class="icon-bar">
+            </span>
+            <span class="icon-bar">
+            </span>
+            <span class="icon-bar">
+            </span>
+            </button>
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/img/logo.png" class="logo"/>
+            </a>
         </div>
-        <!-- /.container-fluid -->
-    </nav>
-	<!-- Navigation -->
+        <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav header-menu">
+                <li>
+                    <a href="index.html">
+                        首页
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html">
+                        关于
+                    </a>
+                </li>
+                <li>
+                    <a href="blog.html">
+                        博客
+                    </a>
+                </li>
+                <li>
+                    <a href="works.html">
+                        作品
+                    </a>
+                </li>
+                <li>
+                    <a href="links.html">
+                        链接
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.html">
+                        联系
+                    </a>
+                </li>
+                <li>
+                    <a href="help.html">
+                        帮助
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
-	<!-- Background Gradients-->
-	<div  class="site-gradients">
-		<div class="site-gradients-media">
-			<figure>
-				<img src="Another%20Yosemite%20short%20movie%20project%20%E2%80%93%20Modern_files/PcLGXNjMTdiFVKTrElCl__DSC2245.jpg" alt="PcLGXNjMTdiFVKTrElCl__DSC2245" srcset="https://themedemos.webmandesign.eu/modern/wp-content/uploads/sites/8/2014/11/PcLGXNjMTdiFVKTrElCl__DSC2245.jpg 1920w, https://themedemos.webmandesign.eu/modern/wp-content/uploads/sites/8/2014/11/PcLGXNjMTdiFVKTrElCl__DSC2245-420x280.jpg 420w, https://themedemos.webmandesign.eu/modern/wp-content/uploads/sites/8/2014/11/PcLGXNjMTdiFVKTrElCl__DSC2245-744x497.jpg 744w, https://themedemos.webmandesign.eu/modern/wp-content/uploads/sites/8/2014/11/PcLGXNjMTdiFVKTrElCl__DSC2245-1200x801.jpg 1200w" sizes="(max-width: 1617px) 100vw, 1617px" height="1080" width="1617">
-			</figure>
-		</div>
-	</div>
-	
-	<header class="container">
-		<div class="site-branding">
-			<h1 class="site-title">
-				<a href="index.html">
-					<span>Justice</span>
-				</a>
-			</h1>
-			<h2 class="site-description">Welcome to Us !</h2>
-		</div>
-		<div class="social-links">
-			<ul class="list-inline">
-				<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-				<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-				<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-				<li><a href="#"><i class="fa fa-vimeo"></i></a></li>
-				<li><a href="#"><i class="fa fa-rss"></i></a></li>
-			</ul>
-		</div>
-	</header>
+<div class="leftbar">
+    <!-- 左菜单 -->
+    <div class="left_menu">
+        <ul class="menu_link">
+            <li>
+                <a href="" class="simptip-position-right simptip-smooth simptip-movable"
+                   data-toggle="tooltip" data-placement="right" title="登陆">
+                    <img src="assets/img/login.png">
+              <span>
+                自定义链接
+              </span>
+                    <div class="clearfix">
+                    </div>
+                </a>
+            </li>
+            <li data-toggle="tooltip" data-placement="right" title="博客">
+                <a href="" class="simptip-position-right simptip-smooth simptip-movable"
+                   target="_black">
+                    <img src="assets/img/login.png">
+              <span>
+                注册
+              </span>
+                    <div class="clearfix">
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="" class="simptip-position-right simptip-smooth simptip-movable">
+                    <img src="assets/img/login.png">
+              <span>
+                自定义链接
+              </span>
+                    <div class="clearfix">
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="" class="simptip-position-right simptip-smooth simptip-movable"
+                   data-tooltip="自定义链接">
+                    <img src="assets/img/login.png">
+              <span>
+                自定义链接
+              </span>
+                    <div class="clearfix">
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="" class="simptip-position-right simptip-smooth simptip-movable"
+                   data-tooltip="自定义链接">
+                    <img src="assets/img/login.png">
+              <span>
+                自定义链接
+              </span>
+                    <div class="clearfix">
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="" class="simptip-position-right simptip-smooth simptip-movable"
+                   data-tooltip="自定义链接">
+                    <img src="assets/img/login.png">
+              <span>
+                自定义链接
+              </span>
+                    <div class="clearfix">
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="" class="simptip-position-right simptip-smooth simptip-movable"
+                   data-tooltip="自定义链接">
+                    <img src="assets/img/login.png">
+              <span>
+                自定义链接
+              </span>
+                    <div class="clearfix">
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="" class="simptip-position-right simptip-smooth simptip-movable"
+                   data-tooltip="自定义链接">
+                    <img src="assets/img/login.png">
+              <span>
+                自定义链接
+              </span>
+                    <div class="clearfix">
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="" class="simptip-position-right simptip-smooth simptip-movable"
+                   data-tooltip="自定义链接">
+                    <img src="assets/img/login.png">
+              <span>
+                自定义链接
+              </span>
+                    <div class="clearfix">
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--Start banner img-->
+<div class="container-filed" id="banner_container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="slider-wrapper theme-default">
+                <div id="slider" class="nivoSlider">
+                    <img src="assets/img/owl.jpg" data-thumb="assets/img/owl.jpg" alt="" />
+                    <a href="assets/img/owl2.jpg"><img src="assets/img/owl2.jpg" alt="" /></a>
+                    <img src="assets/img/owl.jpg" data-thumb="assets/img/owl.jpg" alt="" />
+                    <img src="assets/img/owl2.jpg" data-thumb="assets/img/owl2.jpg" alt="" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End banner img-->
+<div class="container-fluid main-container contact" id="main-container">
+    <div class="row top-title">
+        <div class="col-md-12">
+            <h1 class="page-title">
+                给我留言
+            </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 post-container">
+            <h2 class="post-title">
+                <a href="contact.html" rel="bookmark">
+                    给我留言
+                </a>
+            </h2>
+            <div class="meta-box">
+            <span class="comments-link">
+              <a href="contact.html" class="ds-thread-count" data-thread-key="750" title="Comment on 给我留言">
+                  394 条评论
+              </a>
+            </span>
+            </div>
+            <div class="post-content">
+                <p>
+                    <a href="javascript:;">
+                <p>
+                    呵呵
+                </p>
+                <blockquote class="contact-list" id="contact-list">
+                    <ul>
+                        <li>
+                            有朋自远方来，不亦悦乎。
+                        </li>
+                        <li>
+                            既然来了，如果我们有共同兴趣的话，不妨留言讨论，说不定我们会成为朋友。
+                        </li>
+                    </ul>
+                </blockquote>
+                <p>
+                    关于我，我想我的个人
+                    <a href="about.html" target="_blank">
+                        关于页面
+                    </a>
+                    已经介绍的比较详细了，如果你想联系我的话，不妨写信给我。
+                </p>
+                <p>
+                    <a class="btn btn-sm btn-primary" href="mailto:7248478999@qq.com" target="_blank">
+                        <i class="fa fa-qq">
+                        </i>
+                        QQ邮箱
+                    </a>
+                    <a class="btn btn-sm btn-primary" href="mailto:junqianhen@gmail.com" target="_blank">
+                        <i class="fa fa-google">
+                        </i>
+                        Gmail邮箱
+                    </a>
+                </p>
+                <p>
+                    当然，如果你有新浪微博或者腾讯微博的话，也可以在上面给我留言。
+                </p>
+                <p>
+                    <a class="btn btn-sm btn-primary" href="javascript:if(confirm('http://weibo.ybsat.com/  \n\n'))window.location='http://www.ybsat.com/'"
+                       target="_blank">
+                        <i class="fa fa-weibo">
+                        </i>
+                        新浪微博
+                    </a>
+                    <a class="btn btn-sm btn-primary" href="javascript:if(confirm('http://www.ybsat.com/  \n\n'))window.location='http://www.ybsat.com/'"
+                       target="_blank">
+                        <i class="fa fa-tencent-weibo">
+                        </i>
+                        腾讯微博
+                    </a>
+                </p>
+                <p>
+                    或者，直接在本页留言也可以，不过不确定什么时候会看到
+                </p>
+            </div>
+            <div class="meta-box">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 post-container">
+            <div class="post-content">
+                <div class="ds-thread" data-thread-key="750" data-author-key="1" data-title="给我留言"
+                     data-url="contact.php">
+                </div>
+                <div id="ds-ssr">
+                    <ol id="commentlist">
+                        <li class="comment even thread-even depth-1" id="li-comment-11325">
+                            <article id="comment-11325" class="comment">
+                                <footer class="comment-meta">
+                                    <cite class="comment-author vcard">
+                      <span class="fn">
+                        <a href=""
+                           rel='external nofollow' class='url'>
+                            异步
+                        </a>
+                      </span>
+                                        on
+                                        <a rel="nofollow" href="">
+                                            <time pubdate datetime="2015-01-06T00:15:56+00:00">
+                                                2015 年 1 月 6 日 at am 12:15
+                                            </time>
+                                        </a>
+                      <span class="says">
+                        said:
+                      </span>
+                                    </cite>
+                                </footer>
+                                <div class="comment-content">
+                                    <p>
+                                        嗨~
+                                    </p>
+                                </div>
+                            </article>
+                        </li>
+                        <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-11323">
+                            <article id="comment-11323" class="comment">
+                                <footer class="comment-meta">
+                                    <cite class="comment-author vcard">
+                      <span class="fn">
+                        <a href=""
+                           rel='external nofollow' class='url'>
+                            异步
+                        </a>
+                      </span>
+                                        on
+                                        <a rel="nofollow" href="">
+                                            <time pubdate datetime="2015-01-05T17:12:39+00:00">
+                                                2015 年 1 月 5 日 at pm 5:12
+                                            </time>
+                                        </a>
+                      <span class="says">
+                        said:
+                      </span>
+                                    </cite>
+                                </footer>
+                                <div class="comment-content">
+                                    <p>
+                                        新年快乐~
+                                    </p>
+                                </div>
+                            </article>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 post-container">
+            <div class="post-content">
+                <form method="post" action="black/lib/contact.php" id="form1" class="contact-form">
+                    <div>
+          <span>
+            <label>
+                姓名*
+            </label>
+          </span>
+          <span>
+            <input name="contact_name" type="text" class="textbox">
+          </span>
+                    </div>
+                    <div>
+          <span>
+            <label>
+                标题*
+            </label>
+          </span>
+          <span>
+            <input name="contact_title" type="text" class="textbox">
+          </span>
+                    </div>
+                    <div>
+          <span>
+            <label>
+                邮箱*
+            </label>
+          </span>
+          <span>
+            <input name="contact_email" type="email" class="textbox">
+          </span>
+                    </div>
+                    <div>
+          <span>
+            <label>
+                内容*
+            </label>
+          </span>
+          <span>
+            <textarea name="contact_con" class="textbox">
+            </textarea>
+          </span>
+                    </div>
+                    <div>
+          <span>
+            <input type="submit" value="提交" name="tijiao">
+          </span>
+                    </div>
+                </form>
+            </div>
+            <div class="meta-box">
+            </div>
+        </div>
+    </div>
 
-	
-	<!-- /////////////////////////////////////////Content -->
-	<div id="page-content" class="single-page">
-		<div class="container">
-			<div class="row">
-				<div id="main-content">
-					<article>
-						<div class='embed-container maps'>
-							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.289259162295!2d-120.7989351!3d37.5246781!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8091042b3386acd7%3A0x3b4a4cedc60363dd!2sMain+St%2C+Denair%2C+CA+95316%2C+Hoa+K%E1%BB%B3!5e0!3m2!1svi!2s!4v1434016649434" width="100%" height="450px" frameborder="0" style="border: 0"></iframe>
-						</div>
-						<div class="art-content">
-							<div class="row">
-								<div class="col-md-4 box-item">
-									<h3>Contact Info</h3>
-									<span>SED UT PERSPICIATIS UNDE OMNIS ISTE NATUS ERROR SIT VOLUPTATEM ACCUSANTIUM DOLOREMQUE LAUDANTIUM, TOTAM REM APERIAM.</span><br> <br>
-									<p>JL.Kemacetan timur no.23. block.Q3<br>
-										Jakarta-Indonesia</p>
-									   <p>+6221 888 888 90 <br>
-										+6221 888 88891</p>
-									<p>info@yourdomain.com</p>
-								</div>
-								<div class="col-md-8">
-									<h3>Contact Form</h3>
-									<form name="form1" method="post" action="contact.php">
-										<div class="row">
-											<div class="col-md-6">
-												<div class="form-group">
-												<input type="text" class="form-control input-lg" name="name" id="name" placeholder="Enter name" required="required" />
-												</div>
-											</div>
-											<div class="col-md-6">
-												<div class="form-group">
-													<input type="email" class="form-control input-lg" name="email" id="email" placeholder="Enter email" required="required" />
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-12">
-												<div class="form-group">
-													<input type="text" class="form-control input-lg" name="subject" id="subject" placeholder="Subject" required="required" />
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-12">
-												<div class="form-group">
-													<textarea name="message" id="message" class="form-control" rows="4" cols="25" required="required"
-													placeholder="Message" style="height: 190px;"></textarea>
-												</div>						
-												<button type="submit" class="btn btn-skin btn-block" name="submitcontact" id="submitcontact">Submit</button>
-											</div>
-										</div>
-									</form>
-								</div>
-							</div>
-						</div>
-					</article>
-				</div>
-			</div>
-		</div>
-		
-	</div>
-
-	<!-- FOOTER -->
-	<footer>
-		<div class="wrap-footer">
-			<div class="container">
-				<div class="row"> 
-					<div class="col-footer col-md-3">
-						<h2 class="footer-title">About Us</h2>
-						<div class="textwidget">Aenean feugiat in ante et blandit. Vestibulum posuere molestie risus, ac interdum magna porta non. Pellentesque rutrum fringilla elementum. Curabitur tincidunt porta lorem vitae accumsan. <br> <br> 
-						Aenean feugiat in ante et blandit. Vestibulum posuere molestie risus, ac interdum magna porta non. Pellentesque rutrum fringilla elementum. Curabitur tincidunt porta lorem vitae accumsan.</div>
-					</div> 
-					<div class="col-footer col-md-3 widget_recent_entries">
-						<h2 class="footer-title">Recent Posts</h2>
-						<ul>
-							<li><a href="#">MOST VISITED COUNTRIES</a></li>
-							<li><a href="#">5 PLACES THAT MAKE A GREAT HOLIDAY</a></li>
-							<li><a href="#">PEBBLE TIME STEEL IS ON TRACK TO SHIP IN JULY</a></li>
-							<li><a href="#">STARTUP COMPANY&#8217;S CO-FOUNDER TALKS ON HIS NEW PRODUCT</a></li>
-						</ul>
-					</div>
-					<div class="col-footer col-md-3">
-						<h2 class="footer-title">NEWS LETTER</h2>
-						If you want to receive our latest news send directly to your email, please leave your email address bellow. Subscription is free and you can cancel anytime.
-						<form action="#" method="post">
-							<input type="text" name="your-name" value="" size="40" placeholder="Your Email" />
-							<input type="submit" value="SUBSCRIBE" class="btn btn-skin" />
-						</form>
-					</div>
-					<div class="col-footer col-md-3">
-						<h2 class="footer-title">Tags</h2>
-						<div class="footer-tags">
-							<a href="#">animals</a>
-							<a href="#">cooking</a>
-							<a href="#">countries</a>
-							<a href="#">city</a>
-							<a href="#">children</a>
-							<a href="#">home</a>
-							<a href="#">likes</a>
-							<a href="#">photo</a>
-							<a href="#">link</a>
-							<a href="#">law</a>
-							<a href="#">shopping</a>
-							<a href="#">skate</a>
-							<a href="#">scholl</a>
-							<a href="#">video</a>
-							<a href="#">travel</a>
-							<a href="#">images</a>
-							<a href="#">love</a>
-							<a href="#">lists</a>
-							<a href="#">makeup</a>
-							<a href="#">media</a>
-							<a href="#">password</a>
-							<a href="#">pagination</a>
-							<a href="#">wildlife</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="bottom-footer">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-4">
-						<p>Copyright &copy; 2017.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
-					</div>
-					<div class="col-md-4">
-						<ul class="list-inline social-buttons">
-							<li><a href="#"><i class="fa fa-twitter"></i></a>
-							</li>
-							<li><a href="#"><i class="fa fa-facebook"></i></a>
-							</li>
-							<li><a href="#"><i class="fa fa-linkedin"></i></a>
-							</li>
-							<li><a href="#"><i class="fa fa-pinterest"></i></a>
-							</li>
-						</ul>
-					</div>
-					<div class="col-md-4">
-						<ul class="list-inline quicklinks">
-							<li><a href="#">Privacy Policy</a>
-							</li>
-							<li><a href="#">Terms of Use</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
-  
-	<!-- jQuery -->
-	<script type="text/javascript" src="js/jquery-2.1.1.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	
-	<!-- Custom Theme JavaScript -->
-	<script src="js/agency.js"></script>
-
-	<!-- Plugin JavaScript -->
-	<script src="js/jquery.easing.min.js"></script>
-	<script src="js/classie.js"></script>
-	<script src="js/cbpAnimatedHeader.js"></script>
-	
-	<!-- Google Map -->
-	<script>
-		$('.maps').click(function () {
-		$('.maps iframe').css("pointer-events", "auto");
-	});
-
-	$( ".maps" ).mouseleave(function() {
-	  $('.maps iframe').css("pointer-events", "none"); 
-	});
-	</script>
+    <footer>
+        <!--版权信息-->
+        <div class="copyright">
+            Copyright Ybsat ©2016 All rights reserved 豫ICP备15027119&nbsp;&nbsp;
+            <a href="www.ybsat.com">
+                Theme leaves by Ybsat
+            </a>
+        </div>
+    </footer>
+</div>
+<script src="assets/js/bootstrap.min.js"></script>
+<script>
+        /*banner 初始化*/
+        $(window).load(function() {
+         $('#slider').nivoSlider({
+            effect: 'random',        // 过渡效果
+            controlNav: false,       // 是否显示图片导航控制按钮（,2,3... ）
+            pauseOnHover: true,      // 鼠标县浮时是否停止动画
+            manualAdvance: false,    // 是否手动切换 
+            animSpeed: 100,          // 图片过渡时间   
+            pauseTime: 2000,         // 图片显示时间
+            pauseOnHover: false,
+            manualAdvance: false,
+        });
+        });
+    $(document).ready(function(){
+        $('body').show();
+        $('.version').text(NProgress.version);
+        NProgress.start();
+        setTimeout(function() { NProgress.done(); $('.fade').removeClass('out'); }, 1000);
+    })
+    
+</script>
 </body>
+
 </html>

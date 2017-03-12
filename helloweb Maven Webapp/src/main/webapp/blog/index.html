@@ -1,379 +1,403 @@
-<html>
+<!DOCTYPE html>
+<html lang="cn" dir="ltr" class="no-js">
+
 <head>
-  <!-- META DATA -->
-	<meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="maximum-scale=1.0,width=device-width,initial-scale=1.0,user-scalable=no">
+    <meta name="keywords" content="">
     <meta name="description" content="">
-    <meta name="author" content="">
-
-	<title>Home</title>
-  
-	<!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css"  type="text/css">
-	
-	<!-- Owl Carousel Assets -->
-    <link href="owl-carousel/owl.carousel.css" rel="stylesheet">
-    <!-- <link href="owl-carousel/owl.theme.css" rel="stylesheet"> -->
-	
-	<!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
-	
-	<!-- Custom Fonts -->
-    <link rel="stylesheet" href="font-awesome-4.4.0/css/font-awesome.min.css"  type="text/css">
-	<!---<link href='http://fonts.googleapis.com/css?family=Asap:400,700' rel='stylesheet' type='text/css'>--->
-
-	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="js/html5shiv.js"></script>
-        <script src="js/respond.min.js"></script>
-    <![endif]-->
-    <script src="js/jquery-2.1.1.js"></script>
-    <script>
-        $(alert("OK"));
-    </script>
-	
+    <title>异步 </title>
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="assets/css/nprogress.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/nivo-slider.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="assets/css/default.css" type="text/css" media="screen" />
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.nivo.slider.pack.js"></script>
+    <script src="assets/js/nprogress.js"></script>
 </head>
 
- <body class="index-page">
-
-	<!-- /////////////////////////////////////////Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand page-scroll" href="index.html">JUSTICE</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-					<li>
-                        <a class="page-scroll" href="index.html">Home</a>
-                    </li>
-					<li>
-                        <a class="page-scroll" href="archive.html">Blog</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="single.html">About</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="contact.html">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">
+              Toggle navigation
+            </span>
+            <span class="icon-bar">
+            </span>
+            <span class="icon-bar">
+            </span>
+            <span class="icon-bar">
+            </span>
+            </button>
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/img/logo.png" class="logo"/>
+            </a>
         </div>
-        <!-- /.container-fluid -->
-    </nav>
-	<!-- Navigation -->
-
-	<!-- CAROUSEL -->
-	<div id="carousel-example-generic" class="carousel slide hidden-xs" data-ride="carousel" data-interval="4000">
-		<!-- Wrapper for slides -->
-		<div class="carousel-inner">
-			<div class="item active">
-				<img src="images/banner1.jpg" alt="...">
-				<!-- Static Header -->
-				<div class="container">
-				<div class="header-text hidden-xs">
-					<div class="col-md-12 text-center">
-						<h1>Free Bootstrap Themes Html5xCss3 dot com</h1>
-						<hr>
-						<p>Nunc eu velit metus. Donec in massa libero. Donec bibendum orci a lorem scelerisque luctus. Aliquam et ante quis erat semper pretium.</p>
-						<a href="" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
-					</div>
-				</div><!-- /header-text -->
-				</div>
-			</div>
-			<div class="item">
-				<img src="images/banner2.jpg" alt="...">
-				<!-- Static Header -->
-				<div class="header-text hidden-xs">
-					<div class="col-md-12 text-center">
-						<h1>Free Bootstrap Themes Html5xCss3 dot com</h1>
-						<hr>
-						<p>Suspendisse porttitor sapien ac lectus euismod imperdiet. Curabitur nec nibh at massa pellentesque accumsan eu id nibh. Donec accumsan ut mi.</p>
-						<a href="" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
-					</div>
-				</div><!-- /header-text -->
-			</div>
-			
-		</div>
-		<!-- Controls -->
-		<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-			<span class="glyphicon glyphicon-chevron-left"></span>
-		</a>
-		<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-			<span class="glyphicon glyphicon-chevron-right"></span>
-		</a>
-	</div> <!-- Carousel -->
-	
-	<header class="container">
-		<div class="site-branding">
-			<h1 class="site-title">
-				<a href="index.html">
-					<span>Justice</span>
-				</a>
-			</h1>
-			<h2 class="site-description">Welcome to Us !</h2>
-		</div>
-		<div class="social-links">
-			<ul class="list-inline">
-				<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-				<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-				<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-				<li><a href="#"><i class="fa fa-vimeo"></i></a></li>
-				<li><a href="#"><i class="fa fa-rss"></i></a></li>
-			</ul>
-		</div>
-	</header>
-	
-	<!-- /////////////////////////////////////////Content -->
-	<div id="page-content">
-	
-		<!-- ////////////Content Box 01 -->
-		<section class="box-content box-1">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-4">
-						<div class="box-item">
-							<img src="images/13.jpg" class="img-responsive"/>
-							<div class="content">
-								<h3>Pellentesque vehicula</h3>
-								<p>Nunc eu velit metus. Donec in massa libero. Donec bibendum orci a lorem scelerisque luctus. Aliquam et ante quis erat semper pretium. Pellentesque vehicula.</p>
-								<a href="single.html">Read More...</a>
-								<br><br>
-								<span>MAY 21, 2014 BY VAFPRESS</span><br>
-							</div>
-						</div>
-						<div class="box-item">
-							<img src="images/1.jpg" class="img-responsive"/>
-							<div class="content">
-								<h3>Planning Our Honeymoon</h3>
-								<p>Suspendisse porttitor sapien ac lectus euismod imperdiet. Curabitur nec nibh at massa pellentesque accumsan eu id nibh. Donec accumsan ut mi et tincidunt. Aliquam eget metus nec leo tempor bibendum. Phasellus tincidunt lobortis metus. Duis euismod lorem turpis at diam.</p>
-								<a href="single.html">Read More...</a>
-								<br><br>
-								<span>MAY 21, 2014 BY VAFPRESS</span><br>
-							</div>
-						</div>
-						<div class="box-item">
-							<img src="images/2.jpg" class="img-responsive"/>
-							<div class="content">
-								<h3>Brainstorming Wedding Ideas</h3>
-								<p>Suspendisse porttitor. Aliquam eget metus nec leo tempor bibendum. Phasellus tincidunt lobortis metus. Duis euismod lorem turpis, viverra feugiat ipsum volutpat vitae. Fusce justo turpis, sodales sed placerat non, suscipit at diam.</p>
-								<a href="single.html">Read More...</a>
-								<br><br>
-								<span>MAY 21, 2014 BY VAFPRESS</span><br>
-							</div>
-						</div>
-						<div class="box-item">
-							<img src="images/10.jpg" class="img-responsive"/>
-							<div class="content">
-								<h3>Choosing The Bridesmaids and Groomsmen</h3>
-								<p>Suspendisse porttitor sapien ac lectus euismod imperdiet. Curabitur nec nibh at massa pellentesque accumsan eu id nibh. Donec accumsan ut mi.</p>
-								<a href="single.html">Read More...</a>
-								<br><br>
-								<span>MAY 21, 2014 BY VAFPRESS</span><br>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="box-item">
-							<img src="images/3.jpg" class="img-responsive"/>
-							<div class="content">
-								<h3>Donec bibendum orci</h3>
-								<p>Nunc eu velit metus. Donec in massa libero. Donec bibendum orci a lorem scelerisque luctus. Aliquam et ante quis erat semper pretium. Pellentesque vehicula.</p>
-								<a href="single.html">Read More...</a>
-								<br><br>
-								<span>MAY 21, 2014 BY VAFPRESS</span><br>
-							</div>
-						</div>
-						<div class="box-item">
-							<img src="images/4.jpg" class="img-responsive"/>
-							<div class="content">
-								<h3>Met Dovey’s Parents in Chicago</h3>
-								<p>Class aptent taciti urna bibendum id. Duis a commodo lectus. Morbi id purus nec purus feugiat vestibulum. Suspendisse sapien ante, bibendum ac quam quis, imperdiet bibendum sem. Curabitur nibh magna, tristique et convallis…</p>
-								<a href="single.html">Read More...</a>
-								<br><br>
-								<span>MAY 21, 2014 BY VAFPRESS</span><br>
-							</div>
-						</div>
-						<div class="box-item">
-							<img src="images/8.jpg" class="img-responsive"/>
-							<div class="content">
-								<h3>Choosing The Bridesmaids and Groomsmen</h3>
-								<p>Suspendisse porttitor sapien ac lectus euismod imperdiet. Curabitur nec nibh at massa pellentesque accumsan eu id nibh. Donec accumsan ut mi.</p>
-								<a href="single.html">Read More...</a>
-								<br><br>
-								<span>MAY 21, 2014 BY VAFPRESS</span><br>
-							</div>
-						</div>
-						<div class="box-item">
-							<img src="images/11.jpg" class="img-responsive"/>
-							<div class="content">
-								<h3>She Said Yes!</h3>
-								<p>Nunc eu velit metus. Donec in massa libero. Donec bibendum orci a lorem scelerisque luctus. Aliquam et ante quis erat semper pretium. Pellentesque vehicula.</p>
-								<a href="single.html">Read More...</a>
-								<br><br>
-								<span>MAY 21, 2014 BY VAFPRESS</span><br>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="box-item">
-							<img src="images/5.jpg" class="img-responsive"/>
-							<div class="content">
-								<h3>Choosing The Bridesmaids and Groomsmen</h3>
-								<p>Suspendisse porttitor sapien ac lectus euismod imperdiet. Curabitur nec nibh at massa pellentesque accumsan eu id nibh. Donec accumsan ut mi.</p>
-								<a href="single.html">Read More...</a>
-								<br><br>
-								<span>MAY 21, 2014 BY VAFPRESS</span><br>
-							</div>
-						</div>
-						<div class="box-item">
-							<img src="images/12.jpg" class="img-responsive"/>
-							<div class="content">
-								<h3>She Said Yes!</h3>
-								<p>Nunc eu velit metus. Donec in massa libero. Donec bibendum orci a lorem scelerisque luctus. Aliquam et ante quis erat semper pretium. Pellentesque vehicula.</p>
-								<a href="single.html">Read More...</a>
-								<br><br>
-								<span>MAY 21, 2014 BY VAFPRESS</span><br>
-							</div>
-						</div>
-						<div class="box-item">
-							<img src="images/6.jpg" class="img-responsive"/>
-							<div class="content">
-								<h3>A Sweet Escape to Paris</h3>
-								<p>Proin lobortis mattis odio non ornare. Sed tempor nisi eu hendrerit luctus. Class aptent taciti sociosqu ad litora torquent per conubia nostravelit id sem tincidunt convallis ac eget quam. Vestibulum posuere porttitor sapien .</p>
-								<a href="single.html">Read More...</a>
-								<br><br>
-								<span>MAY 21, 2014 BY VAFPRESS</span><br>
-							</div>
-						</div>
-						<div class="box-item">
-							<img src="images/7.jpg" class="img-responsive"/>
-							<div class="content">
-								<h3>Met Dovey’s Parents in Chicago</h3>
-								<p>Class aptent taciti urna bibendum id. Duis a commodo lectus. Morbi id purus nec purus feugiat vestibulum. Suspendisse sapien ante, bibendum ac quam quis, imperdiet bibendum sem. Curabitur nibh magna, tristique et convallis…</p>
-								<a href="single.html">Read More...</a>
-								<br><br>
-								<span>MAY 21, 2014 BY VAFPRESS</span><br>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-	</div>
-	
-	<!-- FOOTER -->
-	<footer>
-		<div class="wrap-footer">
-			<div class="container">
-				<div class="row"> 
-					<div class="col-footer col-md-3">
-						<h2 class="footer-title">About Us</h2>
-						<div class="textwidget">Aenean feugiat in ante et blandit. Vestibulum posuere molestie risus, ac interdum magna porta non. Pellentesque rutrum fringilla elementum. Curabitur tincidunt porta lorem vitae accumsan. <br> <br> 
-						Aenean feugiat in ante et blandit. Vestibulum posuere molestie risus, ac interdum magna porta non. Pellentesque rutrum fringilla elementum. Curabitur tincidunt porta lorem vitae accumsan.</div>
-					</div> 
-					<div class="col-footer col-md-3 widget_recent_entries">
-						<h2 class="footer-title">Recent Posts</h2>
-						<ul>
-							<li><a href="#">MOST VISITED COUNTRIES</a></li>
-							<li><a href="#">5 PLACES THAT MAKE A GREAT HOLIDAY</a></li>
-							<li><a href="#">PEBBLE TIME STEEL IS ON TRACK TO SHIP IN JULY</a></li>
-							<li><a href="#">STARTUP COMPANY&#8217;S CO-FOUNDER TALKS ON HIS NEW PRODUCT</a></li>
-						</ul>
-					</div>
-					<div class="col-footer col-md-3">
-						<h2 class="footer-title">NEWS LETTER</h2>
-						If you want to receive our latest news send directly to your email, please leave your email address bellow. Subscription is free and you can cancel anytime.
-						<form action="#" method="post">
-							<input type="text" name="your-name" value="" size="40" placeholder="Your Email" />
-							<input type="submit" value="SUBSCRIBE" class="btn btn-skin" />
-						</form>
-					</div>
-					<div class="col-footer col-md-3">
-						<h2 class="footer-title">Tags</h2>
-						<div class="footer-tags">
-							<a href="#">animals</a>
-							<a href="#">cooking</a>
-							<a href="#">countries</a>
-							<a href="#">city</a>
-							<a href="#">children</a>
-							<a href="#">home</a>
-							<a href="#">likes</a>
-							<a href="#">photo</a>
-							<a href="#">link</a>
-							<a href="#">law</a>
-							<a href="#">shopping</a>
-							<a href="#">skate</a>
-							<a href="#">scholl</a>
-							<a href="#">video</a>
-							<a href="#">travel</a>
-							<a href="#">images</a>
-							<a href="#">love</a>
-							<a href="#">lists</a>
-							<a href="#">makeup</a>
-							<a href="#">media</a>
-							<a href="#">password</a>
-							<a href="#">pagination</a>
-							<a href="#">wildlife</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="bottom-footer">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-4">
-						<p>Copyright &copy; 2017.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
-					</div>
-					<div class="col-md-4">
-						<ul class="list-inline social-buttons">
-							<li><a href="#"><i class="fa fa-twitter"></i></a>
-							</li>
-							<li><a href="#"><i class="fa fa-facebook"></i></a>
-							</li>
-							<li><a href="#"><i class="fa fa-linkedin"></i></a>
-							</li>
-							<li><a href="#"><i class="fa fa-pinterest"></i></a>
-							</li>
-						</ul>
-					</div>
-					<div class="col-md-4">
-						<ul class="list-inline quicklinks">
-							<li><a href="#">Privacy Policy</a>
-							</li>
-							<li><a href="#">Terms of Use</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
-  
-	<!-- jQuery -->
-	<script type="text/javascript" src="js/jquery-2.1.1.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	
-	<!-- Custom Theme JavaScript -->
-	<script src="js/agency.js"></script>
-
-	<!-- Plugin JavaScript -->
-	<script src="js/jquery.easing.min.js"></script>
-	<script src="js/classie.js"></script>
-	<script src="js/cbpAnimatedHeader.js"></script>
-	
+        <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav header-menu">
+                <li>
+                    <a href="index.html">
+                        首页
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html">
+                        关于
+                    </a>
+                </li>
+                <li>
+                    <a href="blog.html">
+                        博客
+                    </a>
+                </li>
+                <li>
+                    <a href="works.html">
+                        作品
+                    </a>
+                </li>
+                <li>
+                    <a href="links.html">
+                        链接
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.html">
+                        联系
+                    </a>
+                </li>
+                <li>
+                    <a href="help.html">
+                        帮助
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="leftbar">
+    <!-- 左菜单 -->
+    <div class="left_menu">
+        <ul class="menu_link">
+            <li>
+                <a href="" class="simptip-position-right simptip-smooth simptip-movable"
+                   data-toggle="tooltip" data-placement="right" title="登陆">
+                    <img src="assets/img/login.png">
+              <span>
+                自定义链接
+              </span>
+                    <div class="clearfix">
+                    </div>
+                </a>
+            </li>
+            <li data-toggle="tooltip" data-placement="right" title="博客">
+                <a href="" class="simptip-position-right simptip-smooth simptip-movable"
+                   target="_black">
+                    <img src="assets/img/login.png">
+              <span>
+                注册
+              </span>
+                    <div class="clearfix">
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="" class="simptip-position-right simptip-smooth simptip-movable">
+                    <img src="assets/img/login.png">
+              <span>
+                自定义链接
+              </span>
+                    <div class="clearfix">
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="" class="simptip-position-right simptip-smooth simptip-movable"
+                   data-tooltip="自定义链接">
+                    <img src="assets/img/login.png">
+              <span>
+                自定义链接
+              </span>
+                    <div class="clearfix">
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="" class="simptip-position-right simptip-smooth simptip-movable"
+                   data-tooltip="自定义链接">
+                    <img src="assets/img/login.png">
+              <span>
+                自定义链接
+              </span>
+                    <div class="clearfix">
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="" class="simptip-position-right simptip-smooth simptip-movable"
+                   data-tooltip="自定义链接">
+                    <img src="assets/img/login.png">
+              <span>
+                自定义链接
+              </span>
+                    <div class="clearfix">
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="" class="simptip-position-right simptip-smooth simptip-movable"
+                   data-tooltip="自定义链接">
+                    <img src="assets/img/login.png">
+              <span>
+                自定义链接
+              </span>
+                    <div class="clearfix">
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="" class="simptip-position-right simptip-smooth simptip-movable"
+                   data-tooltip="自定义链接">
+                    <img src="assets/img/login.png">
+              <span>
+                自定义链接
+              </span>
+                    <div class="clearfix">
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="" class="simptip-position-right simptip-smooth simptip-movable"
+                   data-tooltip="自定义链接">
+                    <img src="assets/img/login.png">
+              <span>
+                自定义链接
+              </span>
+                    <div class="clearfix">
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--Start banner img-->
+<div class="container-filed" id="banner_container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="slider-wrapper theme-default">
+                <div id="slider" class="nivoSlider">
+                    <img src="assets/img/owl.jpg" data-thumb="assets/img/owl.jpg" alt="" />
+                    <a href="assets/img/owl2.jpg"><img src="assets/img/owl2.jpg" alt="" /></a>
+                    <img src="assets/img/owl.jpg" data-thumb="assets/img/owl.jpg" alt="" />
+                    <img src="assets/img/owl2.jpg" data-thumb="assets/img/owl2.jpg" alt="" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End banner img-->
+<!--主要内容 -->
+    <div class="container-fluid main-container" id="main-container">
+        <div class="row top-title">
+            <div class="col-md-12">
+                <h1 class="page-title">
+                    最新文章
+                </h1>
+            </div>
+        </div>
+    <!--main Start-->
+    <div class="row">
+        <div class="col-md-12 post-container">
+            <h2 class="post-title">
+                <a href="content.html" title="">异步测试文章</a>
+            </h2>
+            <div class="meta-box">
+            <span class="m-post-date">
+              <i class="fa fa-calendar-o">
+              </i>
+              2015年6月3日
+            </span>
+            <span class="comments-link">
+              <a href="" class="ds-thread-count" data-thread-key="9500" title="Comment on 毕业两周年">
+                  <i class="fa fa-comments-o">
+                  </i>
+                  留言
+              </a>
+            </span>
+            </div>
+            <div class="post-content">
+                <p>
+                    如果您在使用中遇到什么麻烦的事情,那么baby千万不要捶胸顿足,在友情链接界面您会看到作者的博客链接，您可以通过访问作者的博客留言联系我
+                    <a href="http://www.ybsat.com">
+                        联系我
+                    </a>
+                    </p>
+            </div>
+            <div class="meta-box">
+            <span class="cat-links">
+              <i class="fa fa-navicon">
+              </i>
+              <b>
+                  分类:
+              </b>
+              <a href="topics/life/diary.htm">
+                  测试
+              </a>
+            </span>
+            <span class="tag-links">
+              <i class="fa fa-tags">
+              </i>
+              <b>
+                  标签:
+              </b>
+              <a href="tags/毕业.htm" rel="tag">
+                  异步
+              </a>
+            </span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 post-container">
+            <h2 class="post-title">
+                <a href="content.html" title="">异步测试文章</a>
+            </h2>
+            <div class="meta-box">
+            <span class="m-post-date">
+              <i class="fa fa-calendar-o">
+              </i>
+              2015年6月3日
+            </span>
+            <span class="comments-link">
+              <a href="" class="ds-thread-count" data-thread-key="9500" title="Comment on 毕业两周年">
+                  <i class="fa fa-comments-o">
+                  </i>
+                  留言
+              </a>
+            </span>
+            </div>
+            <div class="post-content">
+                <p>
+                    leaves轻博客主要是将大家在博客中不需要的一些东西直接切割掉,只保存最实用的东西,这样使leaves变得更加简洁,同时更显得大方,由于leaves基于bootstrap所以说如果您想定制一些需要的东西是很好改动的．
+                    <a href="">
+                        这是一个链接
+                    </a>
+                    如果您觉得本博客的内容不够您的使用,您可以咨询作者,作者是很乐意为广大用户奉献代码的！
+                </p>
+            </div>
+            <div class="meta-box">
+            <span class="cat-links">
+              <i class="fa fa-navicon">
+              </i>
+              <b>
+                  分类:
+              </b>
+              <a href="topics/life/diary.html">
+                  测试
+              </a>
+            </span>
+            <span class="tag-links">
+              <i class="fa fa-tags">
+              </i>
+              <b>
+                  标签:
+              </b>
+              <a href="tags/毕业.html" rel="tag">
+                  异步
+              </a>
+            </span>
+            </div>
+        </div>
+    </div>
+    <!--更多内容-->
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="page-title">
+                <a href="blog.html" title="">更多内容</a>
+            </h2>
+        </div>
+    </div>
+    <!--跳转至博客页面-->
+    <div class="row">
+        <div class="col-md-12 post-container">
+            <div class="row">
+                <div class="col-md-4">
+                    <a class="btn btn-primary home-browser-more-btn" href="blog.html">
+                        <span>浏览更多文章</span>
+                    </a>
+                </div>
+                <div class="col-md-8">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--推荐阅读-->
+    <div class="row">
+        <div class="col-md-12 post-container m-recommend-page">
+            <div class="row">
+                <div class="col-md-4">
+                    <a href="" class="thumbnail">
+                        <img src="assets/img/works.png" alt="作品展示">
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="" class="thumbnail">
+                        <img src="assets/img/study.png" alt="学习生活">
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="" class="thumbnail">
+                        <img src="assets/img/book.png" alt="作品推荐">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 网站底部 -->
+    <footer>
+        <!--版权信息-->
+        <div class="copyright">
+            Copyright Ybsat ©2016 All rights reserved 豫ICP备15027119&nbsp;&nbsp;
+            <a href="www.ybsat.com">
+                Theme leaves by Ybsat
+            </a>
+        </div>
+    </footer>
+</div>
+<script src="assets/js/bootstrap.min.js"></script>
+<script>
+        /*banner 初始化*/
+        $(window).load(function() {
+         $('#slider').nivoSlider({
+            effect: 'random',        // 过渡效果
+            controlNav: false,       // 是否显示图片导航控制按钮（,2,3... ）
+            pauseOnHover: true,      // 鼠标县浮时是否停止动画
+            manualAdvance: false,    // 是否手动切换 
+            animSpeed: 100,          // 图片过渡时间   
+            pauseTime: 2000,         // 图片显示时间
+            pauseOnHover: false,
+            manualAdvance: false,
+        });
+        });
+    $(document).ready(function(){
+        $('body').show();
+        $('.version').text(NProgress.version);
+        NProgress.start();
+        setTimeout(function() { NProgress.done(); $('.fade').removeClass('out'); }, 1000);
+    })
+    $($.get("hello",function(data){
+    	let blogList = $.parseJSON(data);
+    	let id = blogList['id'];
+    	alert(id);
+    }));
+    
+</script>
 </body>
+
 </html>
