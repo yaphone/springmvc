@@ -360,7 +360,7 @@
 			            '<span class="m-post-date">' +
 			              '<i class="fa fa-calendar-o">' +
 			              '</i>' +
-			              new Date(blogList[i]["updateTime"]) +
+			              formatDate(new Date(blogList[i]["updateTime"]).toLocaleDateString()) +
 			            '</span>' + 
 			            '<span class="comments-link">' +
 			              '<a href="" class="ds-thread-count" data-thread-key="9500" title="Comment on 毕业两周年">' +
@@ -402,6 +402,23 @@
     	    );
     	}	
     }));
+    
+    function formatDate(date) {
+	    dates = date.split("/");
+	    if(dates.length == 3) {
+	        if(dates[1].length == 1) {
+	            dates[1] = "0" + dates[1];
+	        }
+	        if (dates[2].length == 1) {
+	            dates[2] = "0" + dates[2];
+	        }
+	        //date = dates.join("-");
+	        date = dates[0] + "年" + dates[1] + "月" + dates[2] + "日"
+	        return date;
+	    } else {
+	        return null;
+	    }
+	}
     
 </script>
 </body>
