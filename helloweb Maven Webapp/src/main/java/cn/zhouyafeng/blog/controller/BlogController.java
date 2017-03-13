@@ -17,18 +17,31 @@ public class BlogController {
 	@Resource
 	private IBlogService blogService;
 
-	@RequestMapping(value = "/hello", produces = "text/html;charset=UTF-8")
+	@RequestMapping(value = "/page/all", produces = "text/html;charset=UTF-8")
 	@ResponseBody
-	public String printWelcome() {
+	public String getAllBlog() {
 		List<Blog> blog = blogService.getAllBlogEntity();
 		String result = null;
 		try {
 			result = JackSonUtils.obj2json(blog);
 			return result;
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return result;
 	}
+
+	@RequestMapping(value = "/detail/one", produces = "text/html;charset=UTF-8")
+	@ResponseBody
+	public String getBlogDetailById(String id) {
+		Blog blog = blogService.getBlogEntityById("1");
+		String result = null;
+		try {
+			result = JackSonUtils.obj2json(blog);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
 }

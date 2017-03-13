@@ -8,7 +8,7 @@
     <meta name="viewport" content="maximum-scale=1.0,width=device-width,initial-scale=1.0,user-scalable=no">
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <title>异步 </title>
+    <title>Yaphone's Blog </title>
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="assets/css/style.css" rel="stylesheet" />
     <link href="assets/css/nprogress.css" rel="stylesheet" />
@@ -352,7 +352,11 @@
 		    	    '<div class="row">' +
 			        '<div class="col-md-12 post-container">' +
 			            '<h2 class="post-title">' +
-			                '<a href="content.html" title="">' + 
+			            	'<input id="blog_id_' + blogList[i]["id"] + 
+			            	'" value="' + blogList[i]["id"] +
+			            	'" type="hidden">' +
+			                '<a href="content.html?id=' + blogList[i]["id"] +
+			                 '" title="">' + 
 			                	blogList[i]["blogTitle"] +
 			                '</a>' +
 			            '</h2>' + 

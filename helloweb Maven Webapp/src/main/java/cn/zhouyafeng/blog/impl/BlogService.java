@@ -27,8 +27,7 @@ public class BlogService implements IBlogService {
 
 	@Override
 	public List<Blog> getAllBlogEntity() {
-		// TODO Auto-generated method stub
-		return null;
+		return blogEntityMapper.getAllBlogEntity();
 	}
 
 }
