@@ -21,7 +21,7 @@ public class BlogService implements IBlogService {
 
 	@Override
 	public Blog getBlogEntityById(String id) {
-		Blog blog = blogMapper.selectByPrimaryKey(1);
+		Blog blog = blogMapper.selectByPrimaryKey(Integer.parseInt(id));
 		return blog;
 	}
 

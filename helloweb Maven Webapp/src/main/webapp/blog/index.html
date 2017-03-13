@@ -344,7 +344,7 @@
         NProgress.start();
         setTimeout(function() { NProgress.done(); $('.fade').removeClass('out'); }, 1000);
     })
-    $($.get("hello",function(data){
+    $($.post("page/all",function(data){
     	let blogList = $.parseJSON(data);
     	for(var i=0; i<blogList.length; i++){
     	    let container = $("#blogDiv");
