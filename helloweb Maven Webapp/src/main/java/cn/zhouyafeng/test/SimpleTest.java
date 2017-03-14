@@ -1,10 +1,10 @@
 package cn.zhouyafeng.test;
 
-import java.util.List;
-
 import javax.annotation.Resource;
 
 import org.junit.Test;
+
+import com.github.rjeschke.txtmark.Processor;
 
 import cn.zhouyafeng.blog.entity.Blog;
 import cn.zhouyafeng.blog.service.IBlogService;
@@ -18,12 +18,17 @@ public class SimpleTest extends BaseJunitTest {
 
 	@Test
 	public void JacksonUtilTest() {
-		List<Blog> blog = blogService.getAllBlogEntity();
+		Blog blog = blogService.getBlogEntityById("1");
+		String content = blog.getBlogContent();
+		String result = null;
 		try {
-			System.out.println(JackSonUtils.obj2json(blog));
+			result = JackSonUtils.obj2json(blog);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		String html;
+		html = Processor.process(content);
+		System.out.println(html);
 	}
 
 }
