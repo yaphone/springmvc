@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.github.rjeschke.txtmark.Processor;
+
 import cn.zhouyafeng.blog.entity.Blog;
 import cn.zhouyafeng.blog.service.IBlogService;
 import cn.zhouyafeng.utils.JackSonUtils;
@@ -35,6 +37,9 @@ public class BlogController {
 	@ResponseBody
 	public String getBlogDetailById(String id) {
 		Blog blog = blogService.getBlogEntityById(id);
+		String contentHtml = Processor.process("[$PROFILE$]: extended \n\n" + blog.getBlogContent());
+		System.out.println(contentHtml);
+		blog.setBlogContent(contentHtml);
 		String result = null;
 		try {
 			result = JackSonUtils.obj2json(blog);

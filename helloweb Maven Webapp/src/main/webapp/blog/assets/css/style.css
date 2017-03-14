@@ -40,7 +40,7 @@ html.borderbox *, html.borderbox :after, html.borderbox :before {
     box-sizing: border-box
 }
 
-article, aside, blockquote, body, button, code, dd, details, dl, dt, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hr, input, legend, li, menu, nav, ol, p, pre, section, td, textarea, th, ul {
+article, aside, blockquote, body, button, code, dd, details, dl, dt, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hr, input, legend, menu, nav, ol, p, pre, section, td, textarea, th {
     margin: 0;
     padding: 0
 }
@@ -269,7 +269,7 @@ label{
     margin-bottom: 30px;
     opacity: .8;
 }
-.panel p, li, .pull-right, h3 {
+.panel p, .pull-right, h3 {
     color: black;
     list-style: none;
 }
@@ -725,7 +725,7 @@ input#wp-submit {
 
 /*contact style*/
 
-.contact p, li{
+.contact p{
     color: black;
     list-style: none;
 }
