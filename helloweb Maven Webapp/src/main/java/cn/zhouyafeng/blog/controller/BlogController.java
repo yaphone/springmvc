@@ -37,7 +37,7 @@ public class BlogController {
 	@ResponseBody
 	public String getBlogDetailById(String id) {
 		Blog blog = blogService.getBlogEntityById(id);
-		String contentHtml = Processor.process("[$PROFILE$]: extended \n\n" + blog.getBlogContent());
+		String contentHtml = Processor.process(blog.getBlogContent());
 		System.out.println(contentHtml);
 		blog.setBlogContent(contentHtml);
 		String result = null;
