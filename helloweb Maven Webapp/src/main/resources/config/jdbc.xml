@@ -13,10 +13,9 @@
           http://www.springframework.org/schema/context/spring-context-3.0.xsd      
           http://www.springframework.org/schema/aop      
           http://www.springframework.org/schema/aop/spring-aop-3.0.xsd" default-autowire="byName">  
-    
+            
     <!-- 指定connector连接信息的属性文件的位置 -->
     <context:property-placeholder location="classpath:config/db.properties" />
-    
     <!-- 配置数据源,包含connector的驱动名称，地址，用户名以及密码 ,除了c3p0其实还有dbcp这种方式,但是hibernate官方已经宣布不再支持dbcp了-->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="driverClassName" value="${jdbc.driver}" />
