@@ -23,10 +23,13 @@ public class BlogController {
 	@RequestMapping(value = "/page/all", method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
 	@ResponseBody
 	public String getAllBlog() {
-		List<Blog> blog = blogService.getAllBlogEntity();
+		List<Blog> blogs = blogService.getAllBlogEntity();
+		for (Blog blog : blogs) {
+			blog.setBlogContent(Processor.process(blog.getBlogContent()));
+		}
 		String result = null;
 		try {
-			result = JackSonUtils.obj2json(blog);
+			result = JackSonUtils.obj2json(blogs);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
