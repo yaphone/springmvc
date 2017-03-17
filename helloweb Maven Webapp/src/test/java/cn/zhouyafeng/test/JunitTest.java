@@ -1,17 +1,16 @@
 package cn.zhouyafeng.test;
 
-import javax.annotation.Resource;
-
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import cn.zhouyafeng.blog.entity.Blog;
-import cn.zhouyafeng.blog.impl.BlogService;
+import cn.zhouyafeng.blog.service.IBlogService;
 import cn.zhouyafeng.utils.JackSonUtils;
 
 public class JunitTest {
 
-	@Resource
-	private BlogService blogService = null;
+	@Autowired
+	private IBlogService blogService;
 
 	// @Test
 	public void helloWorld() {
