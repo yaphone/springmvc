@@ -138,9 +138,7 @@ a, a:visited ,a:hover, a:focus, a:active{
     -o-transition: all .2s linear;
     transition: all .2s linear
 }
-span{
-    color: white;
-}
+
 label{
     color: #08c;
 }
