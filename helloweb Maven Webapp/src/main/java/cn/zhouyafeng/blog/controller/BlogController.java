@@ -22,9 +22,12 @@ public class BlogController {
 
 	@RequestMapping(value = "/page/all", method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
 	@ResponseBody
-	public String getAllBlog() {
+	public String getAllBlog() {// 获取所有的博文，首页显示，每篇文章只取前200字作为简介
 		List<Blog> blogs = blogService.getAllBlogEntity();
 		for (Blog blog : blogs) {
+			if (blog.getBlogContent().length() > 200) {
+				blog.setBlogContent(blog.getBlogContent().substring(0, 200));
+			}
 			blog.setBlogContent(Processor.process(blog.getBlogContent()));
 		}
 		String result = null;

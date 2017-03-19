@@ -11,6 +11,7 @@
     <title>Yaphone </title>
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="assets/css/mystyle.css" rel="stylesheet" />
     <link href="assets/css/nprogress.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/nivo-slider.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="assets/css/default.css" type="text/css" media="screen" />
@@ -210,15 +211,60 @@
 <div class="container-fluid main-container" id="main-container">
     <div class="row top-title">
         <div class="col-md-12">
-            <h1 class="page-title right">
-                <a href="blog.html">博客</a> >> <a href="content.html">异步测试文章</a>
-            </h1>
+            <h1 id="blog_title" class="blog-title right"></h1>
         </div>
     </div>
     <div class="row">
     	<div id="blog_detail">
 	        
 	    </div>
+    </div>
+    <!-- 评论 -->
+    <div class="row">
+        <div class="col-md-12 post-container">
+            <div class="post-content">
+                <form method="post" action="black/lib/contact.php" id="form1" class="contact-form">
+                    <div>
+          <span>
+            <label>
+                昵称*
+            </label>
+          </span>
+          <span>
+            <input name="contact_name" type="text" class="textbox">
+          </span>
+                    </div>
+                    <div>
+          <span>
+            <label>
+                邮箱*
+            </label>
+          </span>
+          <span>
+            <input name="contact_email" type="email" class="textbox">
+          </span>
+                    </div>
+                    <div>
+          <span>
+            <label>
+                内容*
+            </label>
+          </span>
+          <span>
+            <textarea name="contact_con" class="textbox">
+            </textarea>
+          </span>
+                    </div>
+                    <div>
+          <span>
+            <input type="submit" value="提交" name="tijiao">
+          </span>
+                    </div>
+                </form>
+            </div>
+            <div class="meta-box">
+            </div>
+        </div>
     </div>
     <footer>
         <!--版权信息-->
@@ -259,13 +305,9 @@
     	{"id": GetQueryString("id")},
     	function(data){
     		let blog = $.parseJSON(data);
+    		$("#blog_title").html(blog["blogTitle"]);
     		$("#blog_detail").append(
     			'<div class="col-md-12 post-container">' +
-		            '<h2 class="post-title">' +
-		                '<a href="booklist.htm" tppabs="http://www.soulteary.com/booklist" rel="bookmark">' +
-		                    blog["blogTitle"] +
-		                '</a>' +
-		            '</h2>' +
 		            '<div class="meta-box">' +
 		            '</div>' +
 		            '<div class="post-content">' +
