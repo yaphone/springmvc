@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.github.rjeschke.txtmark.Processor;
 
-import cn.zhouyafeng.blog.entity.Blog;
+import cn.zhouyafeng.blog.entity.BlogDetailEntity;
+import cn.zhouyafeng.blog.entity.BlogEntity;
 import cn.zhouyafeng.blog.service.IBlogService;
 import cn.zhouyafeng.utils.JackSonUtils;
 
@@ -23,8 +24,8 @@ public class BlogController {
 	@RequestMapping(value = "/page/all", method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
 	@ResponseBody
 	public String getAllBlog() {// 获取所有的博文，首页显示，每篇文章只取前200字作为简介
-		List<Blog> blogs = blogService.getAllBlogEntity();
-		for (Blog blog : blogs) {
+		List<BlogDetailEntity> blogs = blogService.getAllBlogDetailEntity();
+		for (BlogDetailEntity blog : blogs) {
 			if (blog.getBlogContent().length() > 200) {
 				blog.setBlogContent(blog.getBlogContent().substring(0, 200));
 			}
@@ -42,7 +43,7 @@ public class BlogController {
 	@RequestMapping(value = "/detail/one", method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
 	@ResponseBody
 	public String getBlogDetailById(String id) {
-		Blog blog = blogService.getBlogEntityById(id);
+		BlogEntity blog = blogService.getBlogEntityById(id);
 		String contentHtml = Processor.process(blog.getBlogContent());
 		System.out.println(contentHtml);
 		blog.setBlogContent(contentHtml);

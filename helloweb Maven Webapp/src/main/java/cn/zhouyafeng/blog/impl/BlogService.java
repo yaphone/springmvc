@@ -6,28 +6,29 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import cn.zhouyafeng.blog.dao.BlogDetailEntityMapper;
 import cn.zhouyafeng.blog.dao.BlogEntityMapper;
-import cn.zhouyafeng.blog.dao.BlogMapper;
-import cn.zhouyafeng.blog.entity.Blog;
+import cn.zhouyafeng.blog.entity.BlogDetailEntity;
+import cn.zhouyafeng.blog.entity.BlogEntity;
 import cn.zhouyafeng.blog.service.IBlogService;
 
 @Service("blogService")
 public class BlogService implements IBlogService {
 
 	@Resource
-	private BlogMapper blogMapper;
-	@Resource
 	private BlogEntityMapper blogEntityMapper;
+	@Resource
+	private BlogDetailEntityMapper blogDetailEntityMapper;
 
 	@Override
-	public Blog getBlogEntityById(String id) {
-		Blog blog = blogMapper.selectByPrimaryKey(Integer.parseInt(id));
+	public BlogEntity getBlogEntityById(String id) {
+		BlogEntity blog = blogEntityMapper.selectByPrimaryKey(Integer.parseInt(id));
 		return blog;
 	}
 
 	@Override
-	public List<Blog> getAllBlogEntity() {
-		return blogEntityMapper.getAllBlogEntity();
+	public List<BlogDetailEntity> getAllBlogDetailEntity() {
+		return blogDetailEntityMapper.getAllBlogDetailEntity();
 	}
 
 }
