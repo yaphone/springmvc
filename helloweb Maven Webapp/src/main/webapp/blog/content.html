@@ -223,48 +223,43 @@
     <div class="row">
         <div class="col-md-12 post-container">
             <div class="post-content">
-                <form method="post" action="black/lib/contact.php" id="form1" class="contact-form">
-                    <div>
-          <span>
-            <label>
-                昵称*
-            </label>
-          </span>
-          <span>
-            <input name="contact_name" type="text" class="textbox">
-          </span>
-                    </div>
-                    <div>
-          <span>
-            <label>
-                邮箱*
-            </label>
-          </span>
-          <span>
-            <input name="contact_email" type="email" class="textbox">
-          </span>
-                    </div>
-                    <div>
-          <span>
-            <label>
-                内容*
-            </label>
-          </span>
-          <span>
-            <textarea name="contact_con" class="textbox">
-            </textarea>
-          </span>
-                    </div>
-                    <div>
-          <span>
-            <input type="submit" value="提交" name="tijiao">
-          </span>
-                    </div>
-                </form>
-            </div>
-            <div class="meta-box">
-            </div>
-        </div>
+              <form method="post" action="comment/publish/one" id="form1" class="contact-form">
+	            <div>
+		          <span>
+		            <label>昵称*</label>
+		          </span>
+		          <span>
+		            <input name="nickName" type="text" class="textbox">
+		          </span>
+       			</div>
+       			<div>
+          		  <span>
+                    <label>邮箱*</label>
+          		  </span>
+          		  <span>
+            		<input name="email" type="email" class="textbox">
+          		  </span>
+       			</div>
+		        <div>
+		          <span>
+		            <label>
+		               	 内容*
+		            </label>
+		          </span>
+		          <span>
+		            <textarea name="comment" class="textbox">
+		            </textarea>
+		          </span>
+		      </div>
+	      	  <div>
+	            <span>
+	              <input type="submit" value="提交" name="tijiao">
+	            </span>
+	          </div>
+	        </form>
+	      </div>
+	      <div class="meta-box"></div>
+	   </div>
     </div>
     <footer>
         <!--版权信息-->

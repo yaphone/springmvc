@@ -13,15 +13,19 @@ import com.github.rjeschke.txtmark.Processor;
 
 import cn.zhouyafeng.blog.entity.BlogDetailEntity;
 import cn.zhouyafeng.blog.entity.BlogEntity;
+import cn.zhouyafeng.blog.entity.CommentPublishVo;
 import cn.zhouyafeng.blog.service.IBlogService;
+import cn.zhouyafeng.blog.service.ICommentService;
 import cn.zhouyafeng.utils.JackSonUtils;
 
 @Controller
 public class BlogController {
 	@Resource
 	private IBlogService blogService;
+	@Resource
+	private ICommentService commentService;
 
-	@RequestMapping(value = "/page/all", method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
+	@RequestMapping(value = "/page/all", produces = "text/html;charset=UTF-8")
 	@ResponseBody
 	public String getAllBlog() {// 获取所有的博文，首页显示，每篇文章只取前200字作为简介
 		List<BlogDetailEntity> blogs = blogService.getAllBlogDetailEntity();
@@ -40,7 +44,15 @@ public class BlogController {
 		return result;
 	}
 
-	@RequestMapping(value = "/detail/one", method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
+	/**
+	 * 根据博文id获取博文详情
+	 * 
+	 * @author Email:zhouyaphone@163.com
+	 * @date 2017年3月21日 上午12:12:28
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping(value = "/detail/one", produces = "text/html;charset=UTF-8")
 	@ResponseBody
 	public String getBlogDetailById(String id) {
 		BlogEntity blog = blogService.getBlogEntityById(id);
@@ -54,6 +66,12 @@ public class BlogController {
 			e.printStackTrace();
 		}
 		return result;
+	}
+
+	@RequestMapping(value = "/comment/publish/one", method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
+	public void publishComment(CommentPublishVo vo) {
+		int t = commentService.insertCommentById(vo);
+		System.out.println(t);
 	}
 
 }
