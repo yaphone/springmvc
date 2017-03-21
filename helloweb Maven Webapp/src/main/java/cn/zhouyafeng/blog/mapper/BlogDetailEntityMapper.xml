@@ -19,4 +19,9 @@
   <select id="getAllBlogDetailEntity" resultMap="BaseResultMap">
   	SELECT * FROM blog_blog;
   </select>
+  
+  <!-- 获取博文的自增ID -->
+  <select id="" resultType="INTEGER">
+  	SELECT AUTO_INCREMENT FROM information_schema.`TABLES` WHERE TABLE_SCHEMA='blog' AND TABLE_NAME='blog_blog';
+  </select>
 </mapper>

@@ -9,20 +9,20 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
     <title>Yaphone </title>
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="assets/css/style.css" rel="stylesheet" />
-    <link href="assets/css/mystyle.css" rel="stylesheet" />
-    <link href="assets/css/nprogress.css" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/css/nivo-slider.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="assets/css/default.css" type="text/css" media="screen" />
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="assets/css/style.css" rel="stylesheet"/>
+    <link href="assets/css/mystyle.css" rel="stylesheet"/>
+    <link href="assets/css/nprogress.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="assets/css/nivo-slider.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="assets/css/default.css" type="text/css" media="screen"/>
     <script src="assets/js/jquery.min.js"></script>
     <link rel="stylesheet" href="assets/APlayer/dist/APlayer.min.css">
     <script src="assets/js/jquery.nivo.slider.pack.js"></script>
     <script src="assets/js/nprogress.js"></script>
     <!-- higlight.js -->
     <link href="assets/css/monokai-sublime.min.css" rel="stylesheet">
-	<script src="assets/js/highlight.min.js"></script>	
-	
+    <script src="assets/js/highlight.min.js"></script>
+
 </head>
 
 <body>
@@ -98,6 +98,7 @@
               <span>
                 自定义链接
               </span>
+
                     <div class="clearfix">
                     </div>
                 </a>
@@ -109,6 +110,7 @@
               <span>
                 注册
               </span>
+
                     <div class="clearfix">
                     </div>
                 </a>
@@ -119,6 +121,7 @@
               <span>
                 自定义链接
               </span>
+
                     <div class="clearfix">
                     </div>
                 </a>
@@ -130,6 +133,7 @@
               <span>
                 自定义链接
               </span>
+
                     <div class="clearfix">
                     </div>
                 </a>
@@ -141,6 +145,7 @@
               <span>
                 自定义链接
               </span>
+
                     <div class="clearfix">
                     </div>
                 </a>
@@ -152,6 +157,7 @@
               <span>
                 自定义链接
               </span>
+
                     <div class="clearfix">
                     </div>
                 </a>
@@ -163,6 +169,7 @@
               <span>
                 自定义链接
               </span>
+
                     <div class="clearfix">
                     </div>
                 </a>
@@ -174,6 +181,7 @@
               <span>
                 自定义链接
               </span>
+
                     <div class="clearfix">
                     </div>
                 </a>
@@ -185,6 +193,7 @@
               <span>
                 自定义链接
               </span>
+
                     <div class="clearfix">
                     </div>
                 </a>
@@ -198,10 +207,10 @@
         <div class="col-md-12">
             <div class="slider-wrapper theme-default">
                 <div id="slider" class="nivoSlider">
-                    <img src="assets/img/owl.jpg" data-thumb="assets/img/owl.jpg" alt="" />
-                    <a href="assets/img/owl2.jpg"><img src="assets/img/owl2.jpg" alt="" /></a>
-                    <img src="assets/img/owl.jpg" data-thumb="assets/img/owl.jpg" alt="" />
-                    <img src="assets/img/owl2.jpg" data-thumb="assets/img/owl2.jpg" alt="" />
+                    <img src="assets/img/owl.jpg" data-thumb="assets/img/owl.jpg" alt=""/>
+                    <a href="assets/img/owl2.jpg"><img src="assets/img/owl2.jpg" alt=""/></a>
+                    <img src="assets/img/owl.jpg" data-thumb="assets/img/owl.jpg" alt=""/>
+                    <img src="assets/img/owl2.jpg" data-thumb="assets/img/owl2.jpg" alt=""/>
                 </div>
             </div>
         </div>
@@ -215,51 +224,53 @@
         </div>
     </div>
     <div class="row">
-    	<div id="blog_detail">
-	        
-	    </div>
+        <div id="blog_detail">
+
+        </div>
     </div>
     <!-- 评论 -->
     <div class="row">
         <div class="col-md-12 post-container">
             <div class="post-content">
-              <form method="post" action="comment/publish/one" id="form1" class="contact-form">
-	            <div>
-		          <span>
-		            <label>昵称*</label>
-		          </span>
-		          <span>
-		            <input name="nickName" type="text" class="textbox">
-		          </span>
-       			</div>
-       			<div>
-          		  <span>
-                    <label>邮箱*</label>
-          		  </span>
-          		  <span>
-            		<input name="email" type="email" class="textbox">
-          		  </span>
-       			</div>
-		        <div>
-		          <span>
-		            <label>
-		               	 内容*
-		            </label>
-		          </span>
-		          <span>
-		            <textarea name="comment" class="textbox">
-		            </textarea>
-		          </span>
-		      </div>
-	      	  <div>
-	            <span>
-	              <input type="submit" value="提交" name="tijiao">
-	            </span>
-	          </div>
-	        </form>
-	      </div>
-	      <div class="meta-box"></div>
-	   </div>
+                <form method="post" action="comment/publish/one" id="form1" class="contact-form">
+                    <div>
+                        <span>
+                            <input name="blogId" id="blog_id" type="hidden" value="">
+                        </span>
+                    </div>
+                    <div>
+                        <span>
+                            <label>昵称*</label>
+                        </span>
+                        <span>
+                            <input name="nickname" type="text" class="textbox">
+                        </span>
+                    </div>
+                    <div>
+                        <span>
+                            <label>邮箱*</label>
+                        </span>
+                        <span>
+                            <input name="email" type="email" class="textbox">
+                        </span>
+                    </div>
+                    <div>
+                        <span>
+                            <label>内容*</label>
+                        </span>
+                        <span>
+                            <textarea name="content" class="textbox"></textarea>
+                        </span>
+                    </div>
+                    <div>
+                        <span>
+                            <input type="submit" value="提交" name="tijiao">
+                        </span>
+                    </div>
+                </form>
+            </div>
+            <div class="meta-box"></div>
+        </div>
     </div>
     <footer>
         <!--版权信息-->
@@ -275,9 +286,9 @@
 <script src="assets/APlayer/dist/APlayer.min.js"></script>
 <script src="assets/APlayer/demo/demo.js"></script>
 <script>
-        /*banner 初始化*/
-        $(window).load(function() {
-         $('#slider').nivoSlider({
+    /*banner 初始化*/
+    $(window).load(function () {
+        $('#slider').nivoSlider({
             effect: 'random',        // 过渡效果
             controlNav: false,       // 是否显示图片导航控制按钮（,2,3... ）
             pauseOnHover: true,      // 鼠标县浮时是否停止动画
@@ -287,51 +298,55 @@
             pauseOnHover: false,
             manualAdvance: false,
         });
-        });
-    $(document).ready(function(){
+    });
+    $(document).ready(function () {
         $('body').show();
         $('.version').text(NProgress.version);
         NProgress.start();
-        setTimeout(function() { NProgress.done(); $('.fade').removeClass('out'); }, 1000);
+        setTimeout(function () {
+            NProgress.done();
+            $('.fade').removeClass('out');
+        }, 1000);
     })
-    
+
     //根据id异步获取后台数据
     $($.post("detail/one",
-    	{"id": GetQueryString("id")},
-    	function(data){
-    		let blog = $.parseJSON(data);
-    		$("#blog_title").html(blog["blogTitle"]);
-    		$("#blog_detail").append(
-    			'<div class="col-md-12 post-container">' +
-		            '<div class="meta-box">' +
-		            '</div>' +
-		            '<div class="post-content">' +
-		                '<section>' +
-		                   '<div class="main-container">' +
-		                        '<div class="row">' +
-		                            blog["blogContent"] +
-		                            '<div id="player3" class="aplayer"></div>' +
-		                        '</div>' +
-		                    '</div>' +
-		                '</section>' +
-		                '<div class="meta-box">' +
-		                '</div>' +
-		            '</div>' +
-	        	'</div>'
-    		)
-    		hljs.initHighlightingOnLoad()
-    	})
+        {"id": GetQueryString("id")},
+        function (data) {
+            let blog = $.parseJSON(data);
+            $("#blog_title").html(blog["blogTitle"]); //博文标题
+            $("#blog_id").val(blog["id"]); //博文id，发表评论时需要传给后台
+            $("#blog_detail").append(
+                '<div class="col-md-12 post-container">' +
+                '<div class="meta-box">' +
+                '</div>' +
+                '<div class="post-content">' +
+                '<section>' +
+                '<div class="main-container">' +
+                '<div class="row">' +
+                blog["blogContent"] +
+                '<div id="player3" class="aplayer"></div>' +
+                '</div>' +
+                '</div>' +
+                '</section>' +
+                '<div class="meta-box">' +
+                '</div>' +
+                '</div>' +
+                '</div>'
+            )
+            hljs.initHighlightingOnLoad()
+        })
     );
-    
+
     //获取当前地址栏中的参数
-    
-	function GetQueryString(name)
-	{
-	     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
-	     var r = window.location.search.substr(1).match(reg);
-	     if(r!=null)return  unescape(r[2]); return null;
-	}
-    
+
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null)return unescape(r[2]);
+        return null;
+    }
+
 </script>
 </body>
 

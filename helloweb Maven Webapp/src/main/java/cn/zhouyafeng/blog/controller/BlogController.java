@@ -68,6 +68,13 @@ public class BlogController {
 		return result;
 	}
 
+	/**
+	 * 发表新评论
+	 * 
+	 * @author Email:zhouyaphone@163.com
+	 * @date 2017年3月21日 下午11:15:16
+	 * @param vo
+	 */
 	@RequestMapping(value = "/comment/publish/one", method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
 	public void publishComment(CommentPublishVo vo) {
 		int t = commentService.insertCommentById(vo);

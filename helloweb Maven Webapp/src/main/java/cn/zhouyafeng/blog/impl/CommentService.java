@@ -4,8 +4,10 @@ import java.util.Date;
 
 import javax.annotation.Resource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import cn.zhouyafeng.blog.dao.CommentDetailEntityMapper;
 import cn.zhouyafeng.blog.dao.CommentEntityMapper;
 import cn.zhouyafeng.blog.entity.CommentEntityWithBLOBs;
 import cn.zhouyafeng.blog.entity.CommentPublishVo;
@@ -16,6 +18,8 @@ public class CommentService implements ICommentService {
 
 	@Resource
 	public CommentEntityMapper commentEntityMapper;
+	@Autowired
+	public CommentDetailEntityMapper commentDetailEntityMapper;
 
 	@Override
 	public int insertCommentById(CommentPublishVo vo) {
@@ -28,7 +32,7 @@ public class CommentService implements ICommentService {
 		e.setCommentTime(new Date());
 		e.setContent(vo.getContent());
 		e.setEmail(vo.getEmail());
-		e.setId(1);
+		e.setId(commentDetailEntityMapper.getNextCommentId());
 		e.setNickname(vo.getNickname());
 		return e;
 	}
