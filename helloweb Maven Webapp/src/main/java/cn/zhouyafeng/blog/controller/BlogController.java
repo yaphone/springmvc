@@ -7,7 +7,9 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.github.rjeschke.txtmark.Processor;
 
@@ -76,9 +78,22 @@ public class BlogController {
 	 * @param vo
 	 */
 	@RequestMapping(value = "/comment/publish/one", method = RequestMethod.POST, produces = "text/html;charset=UTF-8")
+	@ResponseBody
 	public void publishComment(CommentPublishVo vo) {
 		int t = commentService.insertCommentById(vo);
 		System.out.println(t);
+	}
+
+	/**
+	 * 处理上传的博文md文件
+	 * 
+	 * @author Email:zhouyaphone@163.com
+	 * @date 2017年3月21日 下午11:51:28
+	 */
+	@RequestMapping(value = "/mdfile/upload", method = RequestMethod.POST)
+	@ResponseBody
+	public void uploadMdfile(@RequestParam("file") CommonsMultipartFile file) {
+		System.out.println(file);
 	}
 
 }
