@@ -1,9 +1,14 @@
 package cn.zhouyafeng.blog.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -88,12 +93,28 @@ public class BlogController {
 	 * 处理上传的博文md文件
 	 * 
 	 * @author Email:zhouyaphone@163.com
+	 * @return
 	 * @date 2017年3月21日 下午11:51:28
 	 */
 	@RequestMapping(value = "/mdfile/upload", method = RequestMethod.POST)
 	@ResponseBody
-	public void uploadMdfile(@RequestParam("file") CommonsMultipartFile file) {
-		System.out.println(file);
+	public ResponseEntity<Object> uploadMdfile(@RequestParam("file") CommonsMultipartFile file,
+			HttpServletRequest request) {
+		String fileName = file.getOriginalFilename();
+		// System.out.println(fileName);
+		String path = request.getSession().getServletContext().getRealPath("lupload");
+		System.out.println(path);
+		File localFile = new File(path);
+		try {
+			file.transferTo(localFile);
+		} catch (IllegalStateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 }
