@@ -102,19 +102,24 @@ public class BlogController {
 			HttpServletRequest request) {
 		String fileName = file.getOriginalFilename();
 		// System.out.println(fileName);
-		String path = request.getSession().getServletContext().getRealPath("lupload");
-		System.out.println(path);
-		File localFile = new File(path);
-		try {
-			file.transferTo(localFile);
-		} catch (IllegalStateException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		String path = "D:\\markdown\\";
+		// System.out.println(path + fileName);
+		File localFile = new File(path, fileName);
+
+		if (localFile.exists()) {
+			System.out.println(localFile.getAbsolutePath());
+			System.out.println(localFile.getName());
+			System.out.println(localFile.length());
+		} else {
+			localFile.getParentFile().mkdirs();
+			try {
+				file.transferTo(localFile);
+			} catch (IOException e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
 		}
+
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
-
 }
