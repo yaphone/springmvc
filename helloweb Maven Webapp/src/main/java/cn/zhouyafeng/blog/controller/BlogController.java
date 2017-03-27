@@ -139,11 +139,12 @@ public class BlogController {
 			result = null;
 		} else {
 			String[] fa = file.list();
-			List mdList = Arrays.asList(fa);
-			HashMap<String, List> resultMap = new HashMap<String, List>();
+			List<String> mdList = Arrays.asList(fa);
+			HashMap<String, List<String>> resultMap = new HashMap<String, List<String>>();
 			resultMap.put("md", mdList);
 			try {
-				result = JackSonUtils.obj2json(resultMap);
+				ResponseEntity<HashMap> resultEntity = new ResponseEntity<HashMap>(resultMap, HttpStatus.OK);
+				result = JackSonUtils.obj2json(resultEntity);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

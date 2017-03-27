@@ -265,14 +265,17 @@
     
     $.getJSON('publish/mdfile/all', function (data) {
                 //alert(data);
-		for(var i in data['md']){
-        	var fileName = data['md'][i]
+        if(data['statusCode'] == 'OK'){
+	        for(var i in data['body']['md']){
+	        	var fileName = data['body']['md'][i];
             	$("#md_list").append("<tr> <td align='center'><input type='checkbox' value=" 
             	+ fileName +
                 "></td> <td>" + 
                 fileName + 
-                "</td></tr>")
-		}
+                "</td></tr>");
+			}
+        }
+		
     });
     
 </script>
