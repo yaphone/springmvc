@@ -263,6 +263,18 @@
         setTimeout(function() { NProgress.done(); $('.fade').removeClass('out'); }, 1000);
     })
     
+    $.getJSON('publish/mdfile/all', function (data) {
+                //alert(data);
+		for(var i in data['md']){
+        	var fileName = data['md'][i]
+            	$("#md_list").append("<tr> <td align='center'><input type='checkbox' value=" 
+            	+ fileName +
+                "></td> <td>" + 
+                fileName + 
+                "</td></tr>")
+		}
+    });
+    
 </script>
 </body>
 

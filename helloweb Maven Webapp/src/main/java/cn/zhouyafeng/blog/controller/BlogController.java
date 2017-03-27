@@ -2,6 +2,8 @@ package cn.zhouyafeng.blog.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -101,11 +103,8 @@ public class BlogController {
 	public ResponseEntity<Object> uploadMdfile(@RequestParam("file") CommonsMultipartFile file,
 			HttpServletRequest request) {
 		String fileName = file.getOriginalFilename();
-		// System.out.println(fileName);
 		String path = "D:\\markdown\\";
-		// System.out.println(path + fileName);
 		File localFile = new File(path, fileName);
-
 		if (localFile.exists()) {
 			System.out.println(localFile.getAbsolutePath());
 			System.out.println(localFile.getName());
@@ -119,7 +118,37 @@ public class BlogController {
 				e.printStackTrace();
 			}
 		}
-
 		return new ResponseEntity<>(HttpStatus.OK);
+	}
+
+	/**
+	 * 获取保存md的文件夹下所有的文件
+	 * 
+	 * @author Email:zhouyaphone@163.com
+	 * @date 2017年3月28日 上午12:05:08
+	 * @return
+	 */
+	@RequestMapping(value = "/publish/mdfile/all")
+	@ResponseBody
+	public String getAllMdfile() {
+		String result = "";
+		String path = "D:\\markdown\\";
+		File file = new File(path);
+		if (!file.exists()) {
+			System.out.println("File is not exist");
+			result = null;
+		} else {
+			String[] fa = file.list();
+			List mdList = Arrays.asList(fa);
+			HashMap<String, List> resultMap = new HashMap<String, List>();
+			resultMap.put("md", mdList);
+			try {
+				result = JackSonUtils.obj2json(resultMap);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return result;
 	}
 }
