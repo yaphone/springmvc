@@ -152,4 +152,23 @@ public class BlogController {
 		}
 		return result;
 	}
+
+	/**
+	 * 前端发过来需要发表的博文列表
+	 * 
+	 * @author Email:zhouyaphone@163.com
+	 * @date 2017年3月29日 上午12:16:18
+	 * @param mdNameList
+	 * @return
+	 */
+	@RequestMapping(value = "/publish/new/many")
+	@ResponseBody
+	public String publishNewMdfiles(@RequestParam("md_name_list") String mdNameList) {
+		String result = "";
+		List<String> mdList = Arrays.asList(mdNameList.split(","));
+		for (String md : mdList) {
+			System.out.println(md);
+		}
+		return result;
+	}
 }

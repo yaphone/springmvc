@@ -263,7 +263,7 @@
         setTimeout(function() { NProgress.done(); $('.fade').removeClass('out'); }, 1000);
     })
     
-    $.getJSON('publish/mdfile/all', function (data) {
+    $.getJSON('publish/mdfile/all', function (data) { //获取本地文件夹中所有的md文件名，显示
                 //alert(data);
         if(data['statusCode'] == 'OK'){
 	        for(var i in data['body']['md']){
@@ -275,8 +275,31 @@
                 "</td></tr>");
 			}
         }
-		
     });
+    
+    function push_md_name_list() { //向后台发送选中的md文件名
+            var md_name_list = [];
+            $("input[type='checkbox']:checked").each(function () {
+                md_name_list.push($(this).val());
+            });
+            $.ajax({
+                url: "publish/new/many",
+                type: "POST",
+                data: {
+                    'md_name_list': md_name_list.join(',')
+                },
+                traditional: true,
+                success: function (data) {
+                    if(data['status'] == 'success'){
+                        alert("发布成功");
+                        location.reload();
+                    }else if(data['status'] == 'error'){
+                        alert("发布失败，请检查格式");
+                        location.reload();
+                    }
+                }
+            })
+        }
     
 </script>
 </body>
