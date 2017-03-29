@@ -169,9 +169,7 @@ public class BlogController {
 	public String publishNewMdfiles(@RequestParam("md_name_list") String mdNameList) {
 		String result = "";
 		List<String> mdList = Arrays.asList(mdNameList.split(","));
-		for (String md : mdList) {
-			System.out.println(markdownPath);
-		}
+		boolean res = blogService.publishNewBlog(mdList);
 		return result;
 	}
 }

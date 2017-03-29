@@ -9,4 +9,6 @@ public interface IBlogService {
 	public BlogEntity getBlogEntityById(String id);
 
 	public List<BlogDetailEntity> getAllBlogDetailEntity();
+
+	public boolean publishNewBlog(List<String> mdList);
 }
