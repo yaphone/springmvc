@@ -9,6 +9,7 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -33,6 +34,8 @@ public class BlogController {
 	private IBlogService blogService;
 	@Resource
 	private ICommentService commentService;
+	@Value("${markdownPath}")
+	private String markdownPath;
 
 	@RequestMapping(value = "/page/all", produces = "text/html;charset=UTF-8")
 	@ResponseBody
@@ -167,7 +170,7 @@ public class BlogController {
 		String result = "";
 		List<String> mdList = Arrays.asList(mdNameList.split(","));
 		for (String md : mdList) {
-			System.out.println(md);
+			System.out.println(markdownPath);
 		}
 		return result;
 	}

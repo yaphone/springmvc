@@ -32,5 +32,17 @@
 	     <property name="maxInMemorySize" value="4096" />
 	     <property name="defaultEncoding" value="UTF-8"></property>
 	</bean>
+	
+	<!-- 支持读取properties文件 -->
+	<bean id="configProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+	   	<property name="locations">
+	       	<list>
+	           	<value>classpath:/config/*.properties</value>
+	       </list>
+	   </property>
+   </bean>
+	   <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
+	   	<property name="properties" ref="configProperties" />
+   </bean>
    
 </beans>
