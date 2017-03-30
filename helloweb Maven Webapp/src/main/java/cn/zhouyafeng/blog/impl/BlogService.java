@@ -13,8 +13,8 @@ import cn.zhouyafeng.blog.dao.BlogDetailEntityMapper;
 import cn.zhouyafeng.blog.dao.BlogEntityMapper;
 import cn.zhouyafeng.blog.entity.BlogDetailEntity;
 import cn.zhouyafeng.blog.entity.BlogEntity;
+import cn.zhouyafeng.blog.entity.vo.BlogSearchVo;
 import cn.zhouyafeng.blog.service.IBlogService;
-import cn.zhouyafeng.utils.JackSonUtils;
 import cn.zhouyafeng.utils.MarkdownProcessor;
 
 @Service("blogService")
@@ -45,18 +45,24 @@ public class BlogService implements IBlogService {
 			String path = markdownPath + mdName;
 			File mdfile = new File(path);
 			mdfileList.add(mdfile);
-			MarkdownProcessor processor = new MarkdownProcessor(mdfileList);
-			List<BlogEntity> blogList = processor.getBlogList();
-			for (BlogEntity blog : blogList) {
-				try {
-					System.out.println(JackSonUtils.obj2json(blog));
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+		}
+		MarkdownProcessor processor = new MarkdownProcessor(mdfileList);
+		List<BlogEntity> blogList = processor.getBlogList();
+		for (BlogEntity blog : blogList) {
+			BlogSearchVo searchVo = new BlogSearchVo();
+			searchVo.setBlogTitle(blog.getBlogTitle());
+			BlogDetailEntity blogDetailEntity = getBlogDetailEntityBySearchVo(searchVo);
+			if (blogDetailEntity == null) { // 数据库中不存在，则新增
+				// TODO 新增
 			}
 		}
 		return true;
+	}
+
+	@Override
+	public BlogDetailEntity getBlogDetailEntityBySearchVo(BlogSearchVo searchVo) {
+		BlogDetailEntity blogDetailEntity = blogDetailEntityMapper.getBlogDetailEntityBySearchVo(searchVo);
+		return blogDetailEntity;
 	}
 
 }

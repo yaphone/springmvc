@@ -17,11 +17,20 @@
     <result column="reading_count" property="readingCount" jdbcType="INTEGER" />
   </resultMap>
   <select id="getAllBlogDetailEntity" resultMap="BaseResultMap">
-  	SELECT * FROM blog_blog;
+  	SELECT * FROM BLOG_BLOG;
   </select>
   
   <!-- 获取博文的自增ID -->
-  <select id="" resultType="INTEGER">
+  <select id="getNextBlogId" resultType="INTEGER">
   	SELECT AUTO_INCREMENT FROM information_schema.`TABLES` WHERE TABLE_SCHEMA='blog' AND TABLE_NAME='blog_blog';
+  </select>
+  
+  <!-- 根据搜索条件获取BlogDetailEntity -->
+  <select id="getBlogDetailEntityBySearchVo" resultMap="BaseResultMap" parameterType="cn.zhouyafeng.blog.entity.vo.BlogSearchVo">
+  	SELECT * FROM BLOG_BLOG
+  	WHERE 1 = 1
+  	<if test="#{blogTitle} != null and #{blogTitle} != '' ">
+  		AND BLOG_TITLE = #{blogTitle}
+  	</if>
   </select>
 </mapper>

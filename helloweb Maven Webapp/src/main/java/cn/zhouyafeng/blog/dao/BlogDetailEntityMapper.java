@@ -3,6 +3,7 @@ package cn.zhouyafeng.blog.dao;
 import java.util.List;
 
 import cn.zhouyafeng.blog.entity.BlogDetailEntity;
+import cn.zhouyafeng.blog.entity.vo.BlogSearchVo;
 
 public interface BlogDetailEntityMapper {
 	/**
@@ -22,5 +23,15 @@ public interface BlogDetailEntityMapper {
 	 * @return
 	 */
 	public int getNextBlogId();
+
+	/**
+	 * 根据搜索条件查询博文
+	 * 
+	 * @author Email:zhouyaphone@163.com
+	 * @date 2017年3月31日 上午12:19:31
+	 * @param searchVo
+	 * @return
+	 */
+	public BlogDetailEntity getBlogDetailEntityBySearchVo(BlogSearchVo searchVo);
 
 }
