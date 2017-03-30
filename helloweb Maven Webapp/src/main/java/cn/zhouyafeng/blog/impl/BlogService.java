@@ -3,7 +3,6 @@ package cn.zhouyafeng.blog.impl;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -15,6 +14,7 @@ import cn.zhouyafeng.blog.dao.BlogEntityMapper;
 import cn.zhouyafeng.blog.entity.BlogDetailEntity;
 import cn.zhouyafeng.blog.entity.BlogEntity;
 import cn.zhouyafeng.blog.service.IBlogService;
+import cn.zhouyafeng.utils.JackSonUtils;
 import cn.zhouyafeng.utils.MarkdownProcessor;
 
 @Service("blogService")
@@ -46,9 +46,14 @@ public class BlogService implements IBlogService {
 			File mdfile = new File(path);
 			mdfileList.add(mdfile);
 			MarkdownProcessor processor = new MarkdownProcessor(mdfileList);
-			List<Map<String, String>> blogList = processor.getBlogList();
-			for (Map<String, String> blog : blogList) {
-				System.out.println(blog.get("title"));
+			List<BlogEntity> blogList = processor.getBlogList();
+			for (BlogEntity blog : blogList) {
+				try {
+					System.out.println(JackSonUtils.obj2json(blog));
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		}
 		return true;

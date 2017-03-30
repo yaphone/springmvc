@@ -3,11 +3,11 @@ package cn.zhouyafeng.utils;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
+
+import cn.zhouyafeng.blog.entity.BlogEntity;
 
 public class MarkdownProcessor {
 	private List<File> mdfileList = null;
@@ -16,9 +16,9 @@ public class MarkdownProcessor {
 		this.mdfileList = mdfileList;
 	}
 
-	public List<Map<String, String>> getBlogList() { // 返回处理过的博文内容
+	public List<BlogEntity> getBlogList() { // 返回处理过的博文内容
 
-		List<Map<String, String>> blogList = new ArrayList<Map<String, String>>();
+		List<BlogEntity> blogList = new ArrayList<BlogEntity>();
 		for (File mdfile : mdfileList) {
 			List<String> contentStrList = null;
 			StringBuffer blogBuffer = new StringBuffer();
@@ -36,13 +36,38 @@ public class MarkdownProcessor {
 				blogStr = blogBuffer.toString();
 			}
 			if (blogStr != null) { // 开始处理blog
-				// blog title
-				Map<String, String> blogMap = new HashMap<String, String>();
+				BlogEntity blogEntity = new BlogEntity();
+				// 标题
 				int titleStart = blogStr.indexOf("TITLE") + 6;
 				int titleEnd = blogStr.indexOf("**");
-				String title = blogStr.substring(titleStart, titleEnd);
-				blogMap.put("title", title);
-				blogList.add(blogMap);
+				String blogTitle = blogStr.substring(titleStart, titleEnd);
+				blogEntity.setBlogTitle(blogTitle);
+
+				// 分类
+				int classifyStart = blogStr.indexOf("CLASSIFY:") + 9;
+				int classifyEnd = blogStr.indexOf("**", classifyStart);
+				String blogClassify = blogStr.substring(classifyStart, classifyEnd);
+				blogEntity.setBlogType(blogClassify);
+
+				// 关键词
+				int keywordStart = blogStr.indexOf("KEYWORDS:") + 9;
+				int keywordEnd = blogStr.indexOf("**", keywordStart);
+				String blogKeywords = blogStr.substring(keywordStart, keywordEnd);
+				blogEntity.setBlogTag(blogKeywords);
+
+				// 音乐链接
+				int musicUrlStart = blogStr.indexOf("MUSIC:") + 6;
+				int musicUrlEnd = blogStr.indexOf("**", musicUrlStart);
+				String musicUrl = blogStr.substring(musicUrlStart, musicUrlEnd);
+				blogEntity.setMusic(musicUrl);
+
+				// 博文内容
+				int contentStart = blogStr.indexOf("------") + 7;
+				int contentEnd = blogStr.length();
+				String blogContent = blogStr.substring(contentStart, contentEnd);
+				blogEntity.setBlogContent(blogContent);
+
+				blogList.add(blogEntity);
 			}
 		}
 
