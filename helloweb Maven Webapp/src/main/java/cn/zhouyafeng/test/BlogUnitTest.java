@@ -4,6 +4,7 @@ import javax.annotation.Resource;
 
 import org.junit.Test;
 
+import com.alibaba.fastjson.JSON;
 import com.github.rjeschke.txtmark.Processor;
 
 import cn.zhouyafeng.blog.entity.BlogDetailEntity;
@@ -38,12 +39,7 @@ public class BlogUnitTest extends BaseJunitTest {
 		BlogSearchVo searchVo = new BlogSearchVo();
 		searchVo.setBlogTitle("Î¢ÐÅÍøÒ×ÔÆÒôÀÖ²¥·ÅÆ÷");
 		BlogDetailEntity blogDetailEntity = blogService.getBlogDetailEntityBySearchVo(searchVo);
-		try {
-			System.out.println(JackSonUtils.obj2json(blogDetailEntity));
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		System.out.println(JSON.toJSONString(blogDetailEntity));
 	}
 
 }

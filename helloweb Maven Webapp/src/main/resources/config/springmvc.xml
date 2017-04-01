@@ -41,6 +41,7 @@
    	
 	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
 	   	<property name="properties" ref="configProperties" />
+	   	<property name="location" value="classpath:config/db.properties" />
    	</bean>
    
 </beans>
