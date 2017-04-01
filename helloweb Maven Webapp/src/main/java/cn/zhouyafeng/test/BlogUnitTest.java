@@ -34,12 +34,30 @@ public class BlogUnitTest extends BaseJunitTest {
 		System.out.println(html);
 	}
 
-	@Test
+	/**
+	 * 根据标题获取博文测试
+	 * 
+	 * @author Email:zhouyaphone@163.com
+	 * @date 2017年4月1日 下午10:36:09
+	 */
+	// @Test
 	public void getBlogDetailEntityBySearchVoTest() {
 		BlogSearchVo searchVo = new BlogSearchVo();
 		searchVo.setBlogTitle("微信网易云音乐播放器");
 		BlogDetailEntity blogDetailEntity = blogService.getBlogDetailEntityBySearchVo(searchVo);
 		System.out.println(JSON.toJSONString(blogDetailEntity));
+	}
+
+	/**
+	 * 获取博文自增ID
+	 * 
+	 * @author Email:zhouyaphone@163.com
+	 * @date 2017年4月1日 下午10:37:13
+	 */
+	@Test
+	public void getNextBlogIdTest() {
+		int nextId = blogService.getNextBlogId();
+		System.out.println(nextId);
 	}
 
 }

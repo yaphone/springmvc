@@ -8,7 +8,7 @@ import cn.zhouyafeng.blog.entity.vo.BlogSearchVo;
 
 public interface IBlogService {
 	/**
-	 * 获取自增ID
+	 * 根据ID获取博文
 	 * 
 	 * @author Email:zhouyaphone@163.com
 	 * @date 2017年3月31日 上午12:20:34
@@ -45,4 +45,13 @@ public interface IBlogService {
 	 * @return
 	 */
 	public BlogDetailEntity getBlogDetailEntityBySearchVo(BlogSearchVo searchVo);
+
+	/**
+	 * 获取博文自增ID
+	 * 
+	 * @author Email:zhouyaphone@163.com
+	 * @date 2017年4月1日 下午10:35:25
+	 * @return
+	 */
+	public int getNextBlogId();
 }

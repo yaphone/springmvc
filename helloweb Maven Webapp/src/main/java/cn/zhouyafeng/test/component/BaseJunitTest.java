@@ -7,7 +7,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:config/springmvc.xml", "classpath:config/spring-mybatis.xml" })
+@ContextConfiguration(locations = { "classpath:config/spring-mybatis.xml", "classpath:config/springmvc.xml" })
 public class BaseJunitTest {
 	@BeforeClass
 	public static void testBeforeClass() {

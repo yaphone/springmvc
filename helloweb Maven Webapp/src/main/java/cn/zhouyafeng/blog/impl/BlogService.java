@@ -2,6 +2,7 @@ package cn.zhouyafeng.blog.impl;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -53,7 +54,14 @@ public class BlogService implements IBlogService {
 			searchVo.setBlogTitle(blog.getBlogTitle());
 			BlogDetailEntity blogDetailEntity = getBlogDetailEntityBySearchVo(searchVo);
 			if (blogDetailEntity == null) { // 数据库中不存在，则新增
-				// TODO 新增
+				blog.setId(getNextBlogId()); // 博文ID
+				blog.setUpdateTime(new Date());// 发表时间
+				blog.setModifyTime(new Date());// 修改时间，默认与发表时间相同
+				blog.setReadingCount(0); // 发表时阅读次数为0
+				blogEntityMapper.insert(blog);
+			} else { // 数据库中已存在
+				blog.setModifyTime(new Date());
+				blogEntityMapper.updateByPrimaryKeySelective(blog);
 			}
 		}
 		return true;
@@ -63,6 +71,11 @@ public class BlogService implements IBlogService {
 	public BlogDetailEntity getBlogDetailEntityBySearchVo(BlogSearchVo searchVo) {
 		BlogDetailEntity blogDetailEntity = blogDetailEntityMapper.getBlogDetailEntityBySearchVo(searchVo);
 		return blogDetailEntity;
+	}
+
+	@Override
+	public int getNextBlogId() {
+		return blogDetailEntityMapper.getNextBlogId();
 	}
 
 }
