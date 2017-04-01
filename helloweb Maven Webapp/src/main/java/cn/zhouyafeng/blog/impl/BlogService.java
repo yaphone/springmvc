@@ -1,6 +1,7 @@
 package cn.zhouyafeng.blog.impl;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -9,6 +10,7 @@ import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import cn.zhouyafeng.blog.dao.BlogDetailEntityMapper;
 import cn.zhouyafeng.blog.dao.BlogEntityMapper;
@@ -59,7 +61,8 @@ public class BlogService implements IBlogService {
 				blog.setModifyTime(new Date());// 修改时间，默认与发表时间相同
 				blog.setReadingCount(0); // 发表时阅读次数为0
 				blogEntityMapper.insert(blog);
-			} else { // 数据库中已存在
+			} else { // 数据库中已存在，则更新
+				blog.setId(blogDetailEntity.getId());
 				blog.setModifyTime(new Date());
 				blogEntityMapper.updateByPrimaryKeySelective(blog);
 			}
@@ -76,6 +79,27 @@ public class BlogService implements IBlogService {
 	@Override
 	public int getNextBlogId() {
 		return blogDetailEntityMapper.getNextBlogId();
+	}
+
+	@Override
+	public boolean saveUploadMdfile(CommonsMultipartFile file) {
+		String fileName = file.getOriginalFilename();
+		File localFile = new File(markdownPath, fileName);
+		if (localFile.exists()) {
+			System.out.println(localFile.getAbsolutePath());
+			System.out.println(localFile.getName());
+			System.out.println(localFile.length());
+		} else {
+			localFile.getParentFile().mkdirs();
+			try {
+				file.transferTo(localFile);
+				return true;
+			} catch (IOException e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+		return false;
 	}
 
 }

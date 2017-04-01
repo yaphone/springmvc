@@ -2,6 +2,8 @@ package cn.zhouyafeng.blog.service;
 
 import java.util.List;
 
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
+
 import cn.zhouyafeng.blog.entity.BlogDetailEntity;
 import cn.zhouyafeng.blog.entity.BlogEntity;
 import cn.zhouyafeng.blog.entity.vo.BlogSearchVo;
@@ -54,4 +56,12 @@ public interface IBlogService {
 	 * @return
 	 */
 	public int getNextBlogId();
+
+	/**
+	 * 保存上传的md文件
+	 * 
+	 * @author Email:zhouyaphone@163.com
+	 * @date 2017年4月2日 上午12:30:11
+	 */
+	public boolean saveUploadMdfile(CommonsMultipartFile file);
 }

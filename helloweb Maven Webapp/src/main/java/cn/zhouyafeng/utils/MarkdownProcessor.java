@@ -32,6 +32,7 @@ public class MarkdownProcessor {
 			if (contentStrList != null) { // ¶ÁÈ¡µ½ÄÚÈÝ
 				for (String line : contentStrList) {
 					blogBuffer.append(line);
+					blogBuffer.append("\n");
 				}
 				blogStr = blogBuffer.toString();
 			}

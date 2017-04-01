@@ -1,7 +1,6 @@
 package cn.zhouyafeng.blog.controller;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -95,7 +94,7 @@ public class BlogController {
 	}
 
 	/**
-	 * 处理上传的博文md文件
+	 * 保存上传的博文md文件
 	 * 
 	 * @author Email:zhouyaphone@163.com
 	 * @return
@@ -103,25 +102,14 @@ public class BlogController {
 	 */
 	@RequestMapping(value = "/mdfile/upload", method = RequestMethod.POST)
 	@ResponseBody
-	public ResponseEntity<Object> uploadMdfile(@RequestParam("file") CommonsMultipartFile file,
+	public ResponseEntity<Object> saveUploadMdfile(@RequestParam("file") CommonsMultipartFile file,
 			HttpServletRequest request) {
-		String fileName = file.getOriginalFilename();
-		String path = "D:\\markdown\\";
-		File localFile = new File(path, fileName);
-		if (localFile.exists()) {
-			System.out.println(localFile.getAbsolutePath());
-			System.out.println(localFile.getName());
-			System.out.println(localFile.length());
+		boolean result = blogService.saveUploadMdfile(file);
+		if (result == true) {
+			return new ResponseEntity<>(HttpStatus.OK); // 文件保存成功
 		} else {
-			localFile.getParentFile().mkdirs();
-			try {
-				file.transferTo(localFile);
-			} catch (IOException e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			}
+			return new ResponseEntity<>(HttpStatus.SERVICE_UNAVAILABLE); // 文件保存失败
 		}
-		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 	/**
