@@ -42,31 +42,31 @@ public class MarkdownProcessor {
 				int titleStart = blogStr.indexOf("TITLE") + 6;
 				int titleEnd = blogStr.indexOf("**");
 				String blogTitle = blogStr.substring(titleStart, titleEnd);
-				blogEntity.setBlogTitle(blogTitle);
+				blogEntity.setTitle(blogTitle);
 
 				// 分类
 				int classifyStart = blogStr.indexOf("CLASSIFY:") + 9;
 				int classifyEnd = blogStr.indexOf("**", classifyStart);
 				String blogClassify = blogStr.substring(classifyStart, classifyEnd);
-				blogEntity.setBlogType(blogClassify);
+				blogEntity.setClassify(blogClassify);
 
 				// 关键词
 				int keywordStart = blogStr.indexOf("KEYWORDS:") + 9;
 				int keywordEnd = blogStr.indexOf("**", keywordStart);
 				String blogKeywords = blogStr.substring(keywordStart, keywordEnd);
-				blogEntity.setBlogTag(blogKeywords);
+				blogEntity.setKeywords(blogKeywords);
 
 				// 音乐链接
 				int musicUrlStart = blogStr.indexOf("MUSIC:") + 6;
 				int musicUrlEnd = blogStr.indexOf("**", musicUrlStart);
 				String musicUrl = blogStr.substring(musicUrlStart, musicUrlEnd);
-				blogEntity.setMusic(musicUrl);
+				blogEntity.setMusicUrl(musicUrl);
 
 				// 博文内容
 				int contentStart = blogStr.indexOf("------") + 7;
 				int contentEnd = blogStr.length();
-				String blogContent = blogStr.substring(contentStart, contentEnd);
-				blogEntity.setBlogContent(blogContent);
+				String content = blogStr.substring(contentStart, contentEnd);
+				blogEntity.setContent(content);
 
 				blogList.add(blogEntity);
 			}

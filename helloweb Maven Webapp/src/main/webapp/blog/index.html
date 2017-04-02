@@ -281,14 +281,14 @@
 			            	'" type="hidden">' +
 			                '<a href="content.html?id=' + blogList[i]["id"] +
 			                 '" title="">' + 
-			                	blogList[i]["blogTitle"] +
+			                	blogList[i]["title"] +
 			                '</a>' +
 			            '</h2>' + 
 			            '<div class="meta-box">' +
 			            '<span class="m-post-date">' +
 			              '<i class="fa fa-calendar-o">' +
 			              '</i>' +
-			              formatDate(new Date(blogList[i]["updateTime"]).toLocaleDateString()) +
+			              formatDate(new Date(blogList[i]["publishTime"]).toLocaleDateString()) +
 			            '</span>' + 
 			            '<span class="comments-link">' +
 			              '<a href="" class="ds-thread-count" data-thread-key="9500" title="Comment on 毕业两周年">' +
@@ -300,7 +300,7 @@
 			            '</div>' + 
 			            '<div class="post-content">' + 
 			                '<p>' +
-			                    blogList[i]['blogContent'] + 
+			                    blogList[i]['content'] + 
 			                '</p>' +
 			            '</div>' +
 			            '<div class="meta-box">' +
@@ -311,7 +311,7 @@
 			                  '分类:' +
 			              '</b>' +
 			              '<a href="topics/life/diary.html">' +
-			                  blogList[i]['blogType'] +
+			                  blogList[i]['classify'] +
 			              '</a>' +
 			            '</span>' +
 			            '<span class="tag-links">' +
@@ -321,7 +321,7 @@
 			                  '标签:' +
 			             '</b>' +
 			              '<a href="tags/毕业.html" rel="tag">' +
-			                  blogList[i]['blogTag'] +
+			                  blogList[i]['keywords'] +
 			              '</a>' +
 			            '</span>' +
 			            '</div>' +

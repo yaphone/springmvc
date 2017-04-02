@@ -22,7 +22,7 @@ public class BlogUnitTest extends BaseJunitTest {
 	// @Test
 	public void JacksonUtilTest() {
 		BlogEntity blog = blogService.getBlogEntityById("1");
-		String content = blog.getBlogContent();
+		String content = blog.getContent();
 		String result = null;
 		try {
 			result = JackSonUtils.obj2json(blog);
@@ -43,7 +43,7 @@ public class BlogUnitTest extends BaseJunitTest {
 	// @Test
 	public void getBlogDetailEntityBySearchVoTest() {
 		BlogSearchVo searchVo = new BlogSearchVo();
-		searchVo.setBlogTitle("Î¢ÐÅÍøÒ×ÔÆÒôÀÖ²¥·ÅÆ÷");
+		searchVo.setTitle("Î¢ÐÅÍøÒ×ÔÆÒôÀÖ²¥·ÅÆ÷");
 		BlogDetailEntity blogDetailEntity = blogService.getBlogDetailEntityBySearchVo(searchVo);
 		System.out.println(JSON.toJSONString(blogDetailEntity));
 	}
@@ -56,8 +56,10 @@ public class BlogUnitTest extends BaseJunitTest {
 	 */
 	@Test
 	public void getNextBlogIdTest() {
-		int nextId = blogService.getNextBlogId();
+		long nextId = blogService.getNextBlogId();
+		System.out.println();
 		System.out.println(nextId);
+		System.out.println();
 	}
 
 }

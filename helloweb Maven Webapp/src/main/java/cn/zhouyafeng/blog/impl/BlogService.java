@@ -32,7 +32,7 @@ public class BlogService implements IBlogService {
 
 	@Override
 	public BlogEntity getBlogEntityById(String id) {
-		BlogEntity blog = blogEntityMapper.selectByPrimaryKey(Integer.parseInt(id));
+		BlogEntity blog = blogEntityMapper.selectByPrimaryKey(Long.parseLong(id));
 		return blog;
 	}
 
@@ -53,17 +53,17 @@ public class BlogService implements IBlogService {
 		List<BlogEntity> blogList = processor.getBlogList();
 		for (BlogEntity blog : blogList) {
 			BlogSearchVo searchVo = new BlogSearchVo();
-			searchVo.setBlogTitle(blog.getBlogTitle());
+			searchVo.setTitle(blog.getTitle());
 			BlogDetailEntity blogDetailEntity = getBlogDetailEntityBySearchVo(searchVo);
 			if (blogDetailEntity == null) { // 数据库中不存在，则新增
 				blog.setId(getNextBlogId()); // 博文ID
-				blog.setUpdateTime(new Date());// 发表时间
-				blog.setModifyTime(new Date());// 修改时间，默认与发表时间相同
-				blog.setReadingCount(0); // 发表时阅读次数为0
+				blog.setPublishTime(new Date());// 发表时间
+				blog.setUpdateTime(new Date());// 修改时间，默认与发表时间相同
+				blog.setReadingCount(0L); // 发表时阅读次数为0
 				blogEntityMapper.insert(blog);
 			} else { // 数据库中已存在，则更新
 				blog.setId(blogDetailEntity.getId());
-				blog.setModifyTime(new Date());
+				blog.setUpdateTime(new Date());
 				blogEntityMapper.updateByPrimaryKeySelective(blog);
 			}
 		}
@@ -77,7 +77,7 @@ public class BlogService implements IBlogService {
 	}
 
 	@Override
-	public int getNextBlogId() {
+	public long getNextBlogId() {
 		return blogDetailEntityMapper.getNextBlogId();
 	}
 

@@ -55,7 +55,7 @@ public interface IBlogService {
 	 * @date 2017年4月1日 下午10:35:25
 	 * @return
 	 */
-	public int getNextBlogId();
+	public long getNextBlogId();
 
 	/**
 	 * 保存上传的md文件

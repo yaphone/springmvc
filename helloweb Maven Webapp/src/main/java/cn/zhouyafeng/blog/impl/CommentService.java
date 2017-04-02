@@ -29,7 +29,7 @@ public class CommentService implements ICommentService {
 	public CommentEntityWithBLOBs convertVoToEntity(CommentPublishVo vo) {
 		CommentEntityWithBLOBs e = new CommentEntityWithBLOBs();
 		e.setBlogId(vo.getBlogId());
-		e.setCommentTime(new Date());
+		e.setPublishTime(new Date());
 		e.setContent(vo.getContent());
 		e.setEmail(vo.getEmail());
 		e.setId(commentDetailEntityMapper.getNextCommentId());

@@ -41,10 +41,10 @@ public class BlogController {
 	public String getAllBlog() {// 获取所有的博文，首页显示，每篇文章只取前200字作为简介
 		List<BlogDetailEntity> blogs = blogService.getAllBlogDetailEntity();
 		for (BlogDetailEntity blog : blogs) {
-			if (blog.getBlogContent().length() > 200) {
-				blog.setBlogContent(blog.getBlogContent().substring(0, 200));
+			if (blog.getContent().length() > 200) {
+				blog.setContent(blog.getContent().substring(0, 200));
 			}
-			blog.setBlogContent(Processor.process(blog.getBlogContent()));
+			blog.setContent(Processor.process(blog.getContent()));
 		}
 		String result = null;
 		try {
@@ -67,9 +67,9 @@ public class BlogController {
 	@ResponseBody
 	public String getBlogDetailById(String id) {
 		BlogEntity blog = blogService.getBlogEntityById(id);
-		String contentHtml = Processor.process(blog.getBlogContent());
+		String contentHtml = Processor.process(blog.getContent());
 		System.out.println(contentHtml);
-		blog.setBlogContent(contentHtml);
+		blog.setContent(contentHtml);
 		String result = null;
 		try {
 			result = JackSonUtils.obj2json(blog);

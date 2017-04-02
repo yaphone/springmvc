@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2017/4/2 23:18:03                            */
+/* Created on:     2017/4/3 0:48:37                             */
 /*==============================================================*/
 
 
@@ -15,7 +15,7 @@ drop table if exists sub_comment;
 /*==============================================================*/
 create table blog
 (
-   id                   bigint not null,
+   id                   bigint not null auto_increment,
    title                char(255),
    content              text,
    publish_time         date,
@@ -32,7 +32,7 @@ create table blog
 /*==============================================================*/
 create table blog_comment
 (
-   id                   bigint not null,
+   id                   bigint not null auto_increment,
    nick_name            char(255),
    publish_time         date,
    content              text,
@@ -46,7 +46,7 @@ create table blog_comment
 /*==============================================================*/
 create table sub_comment
 (
-   id                   bigint not null,
+   id                   bigint not null auto_increment,
    comment_id           bigint not null,
    nick_name            char(255),
    content              text,

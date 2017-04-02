@@ -22,7 +22,7 @@ public interface BlogDetailEntityMapper {
 	 * @date 2017年3月21日 下午11:16:42
 	 * @return
 	 */
-	public int getNextBlogId();
+	public long getNextBlogId();
 
 	/**
 	 * 根据搜索条件查询博文

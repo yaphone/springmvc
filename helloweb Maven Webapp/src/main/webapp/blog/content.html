@@ -314,7 +314,7 @@
         {"id": GetQueryString("id")},
         function (data) {
             let blog = $.parseJSON(data);
-            $("#blog_title").html(blog["blogTitle"]); //博文标题
+            $("#blog_title").html(blog["title"]); //博文标题
             $("#blog_id").val(blog["id"]); //博文id，发表评论时需要传给后台
             $("#blog_detail").append(
                 '<div class="col-md-12 post-container">' +
@@ -324,7 +324,7 @@
                 '<section>' +
                 '<div class="main-container">' +
                 '<div class="row">' +
-                blog["blogContent"] +
+                blog["content"] +
                 '<div id="player3" class="aplayer"></div>' +
                 '</div>' +
                 '</div>' +
