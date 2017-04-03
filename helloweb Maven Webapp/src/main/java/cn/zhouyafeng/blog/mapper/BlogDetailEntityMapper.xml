@@ -17,7 +17,8 @@
     <result column="content" property="content" jdbcType="VARCHAR" />
   </resultMap>
   <select id="getAllBlogDetailEntity" resultMap="BaseResultMap">
-  	SELECT * FROM BLOG;
+  	SELECT * FROM BLOG
+  	ORDER BY PUBLISH_TIME DESC;
   </select>
   
   <!-- 获取博文的自增ID -->

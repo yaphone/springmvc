@@ -8,6 +8,6 @@ package cn.zhouyafeng.blog.entity;
  * @version 1.0
  *
  */
-public class CommentPublishVo extends CommentEntityWithBLOBs {
+public class CommentPublishVo extends CommentEntity {
 
 }

@@ -8,7 +8,7 @@
     -->
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="nick_name" property="nickName" jdbcType="CHAR" />
-    <result column="publish_time" property="publishTime" jdbcType="DATE" />
+    <result column="publish_time" property="publishTime" jdbcType="TIMESTAMP" />
     <result column="email" property="email" jdbcType="CHAR" />
     <result column="blog_id" property="blogId" jdbcType="BIGINT" />
   </resultMap>
@@ -61,7 +61,7 @@
     insert into blog_comment (id, nick_name, publish_time, 
       email, blog_id, content
       )
-    values (#{id,jdbcType=BIGINT}, #{nickName,jdbcType=CHAR}, #{publishTime,jdbcType=DATE}, 
+    values (#{id,jdbcType=BIGINT}, #{nickName,jdbcType=CHAR}, #{publishTime,jdbcType=TIMESTAMP}, 
       #{email,jdbcType=CHAR}, #{blogId,jdbcType=BIGINT}, #{content,jdbcType=LONGVARCHAR}
       )
   </insert>
@@ -99,7 +99,7 @@
         #{nickName,jdbcType=CHAR},
       </if>
       <if test="publishTime != null" >
-        #{publishTime,jdbcType=DATE},
+        #{publishTime,jdbcType=TIMESTAMP},
       </if>
       <if test="email != null" >
         #{email,jdbcType=CHAR},
@@ -123,7 +123,7 @@
         nick_name = #{nickName,jdbcType=CHAR},
       </if>
       <if test="publishTime != null" >
-        publish_time = #{publishTime,jdbcType=DATE},
+        publish_time = #{publishTime,jdbcType=TIMESTAMP},
       </if>
       <if test="email != null" >
         email = #{email,jdbcType=CHAR},
@@ -144,7 +144,7 @@
     -->
     update blog_comment
     set nick_name = #{nickName,jdbcType=CHAR},
-      publish_time = #{publishTime,jdbcType=DATE},
+      publish_time = #{publishTime,jdbcType=TIMESTAMP},
       email = #{email,jdbcType=CHAR},
       blog_id = #{blogId,jdbcType=BIGINT},
       content = #{content,jdbcType=LONGVARCHAR}
@@ -157,7 +157,7 @@
     -->
     update blog_comment
     set nick_name = #{nickName,jdbcType=CHAR},
-      publish_time = #{publishTime,jdbcType=DATE},
+      publish_time = #{publishTime,jdbcType=TIMESTAMP},
       email = #{email,jdbcType=CHAR},
       blog_id = #{blogId,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}

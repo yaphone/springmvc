@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import cn.zhouyafeng.blog.dao.CommentDetailEntityMapper;
 import cn.zhouyafeng.blog.dao.CommentEntityMapper;
-import cn.zhouyafeng.blog.entity.CommentEntityWithBLOBs;
+import cn.zhouyafeng.blog.entity.CommentEntity;
 import cn.zhouyafeng.blog.entity.CommentPublishVo;
 import cn.zhouyafeng.blog.service.ICommentService;
 
@@ -26,14 +26,14 @@ public class CommentService implements ICommentService {
 		return commentEntityMapper.insert(convertVoToEntity(vo));
 	}
 
-	public CommentEntityWithBLOBs convertVoToEntity(CommentPublishVo vo) {
-		CommentEntityWithBLOBs e = new CommentEntityWithBLOBs();
+	public CommentEntity convertVoToEntity(CommentPublishVo vo) {
+		CommentEntity e = new CommentEntity();
 		e.setBlogId(vo.getBlogId());
 		e.setPublishTime(new Date());
 		e.setContent(vo.getContent());
 		e.setEmail(vo.getEmail());
 		e.setId(commentDetailEntityMapper.getNextCommentId());
-		e.setNickname(vo.getNickname());
+		e.setNickName(vo.getNickName());
 		return e;
 	}
 

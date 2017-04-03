@@ -39,8 +39,8 @@ public class MarkdownProcessor {
 			if (blogStr != null) { // 开始处理blog
 				BlogEntity blogEntity = new BlogEntity();
 				// 标题
-				int titleStart = blogStr.indexOf("TITLE") + 6;
-				int titleEnd = blogStr.indexOf("**");
+				int titleStart = blogStr.indexOf("TITLE:") + 6;
+				int titleEnd = blogStr.indexOf("**", titleStart);
 				String blogTitle = blogStr.substring(titleStart, titleEnd);
 				blogEntity.setTitle(blogTitle);
 

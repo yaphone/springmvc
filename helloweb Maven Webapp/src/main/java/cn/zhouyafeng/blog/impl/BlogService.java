@@ -3,6 +3,7 @@ package cn.zhouyafeng.blog.impl;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -100,6 +101,21 @@ public class BlogService implements IBlogService {
 			}
 		}
 		return false;
+	}
+
+	@Override
+	public List<String> getLocalMdfileNameList() {
+		List<String> mdList = null;
+		File file = new File(markdownPath);
+		if (!file.exists()) {
+			System.out.println("File is not exist");
+			mdList = null;
+		} else {
+			String[] fa = file.list();
+			mdList = Arrays.asList(fa);
+		}
+
+		return mdList;
 	}
 
 }

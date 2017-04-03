@@ -64,4 +64,13 @@ public interface IBlogService {
 	 * @date 2017年4月2日 上午12:30:11
 	 */
 	public boolean saveUploadMdfile(CommonsMultipartFile file);
+
+	/**
+	 * 获取本地所有的md文件名
+	 * 
+	 * @author Email:zhouyaphone@163.com
+	 * @date 2017年4月3日 上午11:05:29
+	 * @return
+	 */
+	public List<String> getLocalMdfileNameList();
 }

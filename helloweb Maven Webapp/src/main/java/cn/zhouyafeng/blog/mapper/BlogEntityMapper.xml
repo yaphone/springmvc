@@ -8,8 +8,8 @@
     -->
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="title" property="title" jdbcType="CHAR" />
-    <result column="publish_time" property="publishTime" jdbcType="DATE" />
-    <result column="update_time" property="updateTime" jdbcType="DATE" />
+    <result column="publish_time" property="publishTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
     <result column="classify" property="classify" jdbcType="CHAR" />
     <result column="keywords" property="keywords" jdbcType="CHAR" />
     <result column="music_url" property="musicUrl" jdbcType="CHAR" />
@@ -65,8 +65,8 @@
       update_time, classify, keywords, 
       music_url, reading_count, content
       )
-    values (#{id,jdbcType=BIGINT}, #{title,jdbcType=CHAR}, #{publishTime,jdbcType=DATE}, 
-      #{updateTime,jdbcType=DATE}, #{classify,jdbcType=CHAR}, #{keywords,jdbcType=CHAR}, 
+    values (#{id,jdbcType=BIGINT}, #{title,jdbcType=CHAR}, #{publishTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{classify,jdbcType=CHAR}, #{keywords,jdbcType=CHAR}, 
       #{musicUrl,jdbcType=CHAR}, #{readingCount,jdbcType=BIGINT}, #{content,jdbcType=LONGVARCHAR}
       )
   </insert>
@@ -113,10 +113,10 @@
         #{title,jdbcType=CHAR},
       </if>
       <if test="publishTime != null" >
-        #{publishTime,jdbcType=DATE},
+        #{publishTime,jdbcType=TIMESTAMP},
       </if>
       <if test="updateTime != null" >
-        #{updateTime,jdbcType=DATE},
+        #{updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="classify != null" >
         #{classify,jdbcType=CHAR},
@@ -146,10 +146,10 @@
         title = #{title,jdbcType=CHAR},
       </if>
       <if test="publishTime != null" >
-        publish_time = #{publishTime,jdbcType=DATE},
+        publish_time = #{publishTime,jdbcType=TIMESTAMP},
       </if>
       <if test="updateTime != null" >
-        update_time = #{updateTime,jdbcType=DATE},
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="classify != null" >
         classify = #{classify,jdbcType=CHAR},
@@ -176,8 +176,8 @@
     -->
     update blog
     set title = #{title,jdbcType=CHAR},
-      publish_time = #{publishTime,jdbcType=DATE},
-      update_time = #{updateTime,jdbcType=DATE},
+      publish_time = #{publishTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
       classify = #{classify,jdbcType=CHAR},
       keywords = #{keywords,jdbcType=CHAR},
       music_url = #{musicUrl,jdbcType=CHAR},
@@ -192,8 +192,8 @@
     -->
     update blog
     set title = #{title,jdbcType=CHAR},
-      publish_time = #{publishTime,jdbcType=DATE},
-      update_time = #{updateTime,jdbcType=DATE},
+      publish_time = #{publishTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
       classify = #{classify,jdbcType=CHAR},
       keywords = #{keywords,jdbcType=CHAR},
       music_url = #{musicUrl,jdbcType=CHAR},

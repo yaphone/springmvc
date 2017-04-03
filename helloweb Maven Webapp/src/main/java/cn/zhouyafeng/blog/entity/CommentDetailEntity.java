@@ -1,5 +1,5 @@
 package cn.zhouyafeng.blog.entity;
 
-public class CommentDetailEntity extends CommentEntityWithBLOBs {
+public class CommentDetailEntity extends CommentEntity {
 
 }

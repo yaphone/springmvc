@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2017/4/3 0:48:37                             */
+/* Created on:     2017/4/3 12:31:46                            */
 /*==============================================================*/
 
 
@@ -18,8 +18,8 @@ create table blog
    id                   bigint not null auto_increment,
    title                char(255),
    content              text,
-   publish_time         date,
-   update_time          date,
+   publish_time         datetime,
+   update_time          datetime,
    classify             char(255),
    keywords             char(255),
    music_url            char(255),
@@ -34,7 +34,7 @@ create table blog_comment
 (
    id                   bigint not null auto_increment,
    nick_name            char(255),
-   publish_time         date,
+   publish_time         datetime,
    content              text,
    email                char(255),
    blog_id              bigint,
@@ -51,7 +51,7 @@ create table sub_comment
    nick_name            char(255),
    content              text,
    email                char(255),
-   publish_time         date,
+   publish_time         datetime,
    primary key (id)
 );
 

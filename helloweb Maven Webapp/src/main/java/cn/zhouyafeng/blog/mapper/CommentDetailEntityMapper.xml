@@ -10,6 +10,6 @@
     <result column="content" property="content" jdbcType="LONGVARCHAR" />
   </resultMap>
   <select id="getNextCommentId" resultType="Long">
-  	SELECT AUTO_INCREMENT FROM information_schema.`TABLES` WHERE TABLE_SCHEMA='blog' AND TABLE_NAME='blog_comment';
+  	SELECT AUTO_INCREMENT FROM information_schema.`TABLES` WHERE TABLE_SCHEMA='springmvc' AND TABLE_NAME='blog_comment';
   </select>
 </mapper>

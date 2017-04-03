@@ -10,7 +10,7 @@
     <result column="comment_id" property="commentId" jdbcType="BIGINT" />
     <result column="nick_name" property="nickName" jdbcType="CHAR" />
     <result column="email" property="email" jdbcType="CHAR" />
-    <result column="publish_time" property="publishTime" jdbcType="DATE" />
+    <result column="publish_time" property="publishTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="cn.zhouyafeng.blog.entity.SubCommentEntity" extends="BaseResultMap" >
     <!--
@@ -62,7 +62,7 @@
       email, publish_time, content
       )
     values (#{id,jdbcType=BIGINT}, #{commentId,jdbcType=BIGINT}, #{nickName,jdbcType=CHAR}, 
-      #{email,jdbcType=CHAR}, #{publishTime,jdbcType=DATE}, #{content,jdbcType=LONGVARCHAR}
+      #{email,jdbcType=CHAR}, #{publishTime,jdbcType=TIMESTAMP}, #{content,jdbcType=LONGVARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="cn.zhouyafeng.blog.entity.SubCommentEntity" >
@@ -105,7 +105,7 @@
         #{email,jdbcType=CHAR},
       </if>
       <if test="publishTime != null" >
-        #{publishTime,jdbcType=DATE},
+        #{publishTime,jdbcType=TIMESTAMP},
       </if>
       <if test="content != null" >
         #{content,jdbcType=LONGVARCHAR},
@@ -129,7 +129,7 @@
         email = #{email,jdbcType=CHAR},
       </if>
       <if test="publishTime != null" >
-        publish_time = #{publishTime,jdbcType=DATE},
+        publish_time = #{publishTime,jdbcType=TIMESTAMP},
       </if>
       <if test="content != null" >
         content = #{content,jdbcType=LONGVARCHAR},
@@ -146,7 +146,7 @@
     set comment_id = #{commentId,jdbcType=BIGINT},
       nick_name = #{nickName,jdbcType=CHAR},
       email = #{email,jdbcType=CHAR},
-      publish_time = #{publishTime,jdbcType=DATE},
+      publish_time = #{publishTime,jdbcType=TIMESTAMP},
       content = #{content,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
@@ -159,7 +159,7 @@
     set comment_id = #{commentId,jdbcType=BIGINT},
       nick_name = #{nickName,jdbcType=CHAR},
       email = #{email,jdbcType=CHAR},
-      publish_time = #{publishTime,jdbcType=DATE}
+      publish_time = #{publishTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

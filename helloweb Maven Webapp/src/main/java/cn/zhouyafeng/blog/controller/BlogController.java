@@ -1,14 +1,11 @@
 package cn.zhouyafeng.blog.controller;
 
-import java.io.File;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -18,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+import com.alibaba.fastjson.JSON;
 import com.github.rjeschke.txtmark.Processor;
 
 import cn.zhouyafeng.blog.entity.BlogDetailEntity;
@@ -25,7 +23,6 @@ import cn.zhouyafeng.blog.entity.BlogEntity;
 import cn.zhouyafeng.blog.entity.CommentPublishVo;
 import cn.zhouyafeng.blog.service.IBlogService;
 import cn.zhouyafeng.blog.service.ICommentService;
-import cn.zhouyafeng.utils.JackSonUtils;
 
 @Controller
 public class BlogController {
@@ -33,8 +30,6 @@ public class BlogController {
 	private IBlogService blogService;
 	@Resource
 	private ICommentService commentService;
-	@Value("${markdownPath}")
-	private String markdownPath;
 
 	@RequestMapping(value = "/page/all", produces = "text/html;charset=UTF-8")
 	@ResponseBody
@@ -46,13 +41,7 @@ public class BlogController {
 			}
 			blog.setContent(Processor.process(blog.getContent()));
 		}
-		String result = null;
-		try {
-			result = JackSonUtils.obj2json(blogs);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return result;
+		return JSON.toJSONString(new ResponseEntity<>(blogs, HttpStatus.OK));
 	}
 
 	/**
@@ -68,15 +57,8 @@ public class BlogController {
 	public String getBlogDetailById(String id) {
 		BlogEntity blog = blogService.getBlogEntityById(id);
 		String contentHtml = Processor.process(blog.getContent());
-		System.out.println(contentHtml);
 		blog.setContent(contentHtml);
-		String result = null;
-		try {
-			result = JackSonUtils.obj2json(blog);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return result;
+		return JSON.toJSONString(new ResponseEntity<>(blog, HttpStatus.OK));
 	}
 
 	/**
@@ -122,26 +104,12 @@ public class BlogController {
 	@RequestMapping(value = "/publish/mdfile/all")
 	@ResponseBody
 	public String getAllMdfile() {
-		String result = "";
-		String path = "D:\\markdown\\";
-		File file = new File(path);
-		if (!file.exists()) {
-			System.out.println("File is not exist");
-			result = null;
+		List<String> mdList = blogService.getLocalMdfileNameList();
+		if (mdList != null) {
+			return JSON.toJSONString(new ResponseEntity<>(mdList, HttpStatus.OK));
 		} else {
-			String[] fa = file.list();
-			List<String> mdList = Arrays.asList(fa);
-			HashMap<String, List<String>> resultMap = new HashMap<String, List<String>>();
-			resultMap.put("md", mdList);
-			try {
-				ResponseEntity<HashMap> resultEntity = new ResponseEntity<HashMap>(resultMap, HttpStatus.OK);
-				result = JackSonUtils.obj2json(resultEntity);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			return JSON.toJSONString(new ResponseEntity<>(HttpStatus.SERVICE_UNAVAILABLE));
 		}
-		return result;
 	}
 
 	/**
@@ -155,9 +123,12 @@ public class BlogController {
 	@RequestMapping(value = "/publish/new/many")
 	@ResponseBody
 	public String publishNewMdfiles(@RequestParam("md_name_list") String mdNameList) {
-		String result = "";
 		List<String> mdList = Arrays.asList(mdNameList.split(","));
-		boolean res = blogService.publishNewBlog(mdList);
-		return result;
+		boolean result = blogService.publishNewBlog(mdList);
+		if (result) {
+			return JSON.toJSONString(new ResponseEntity<>(result, HttpStatus.OK));
+		} else {
+			return JSON.toJSONString(new ResponseEntity<>(HttpStatus.SERVICE_UNAVAILABLE));
+		}
 	}
 }

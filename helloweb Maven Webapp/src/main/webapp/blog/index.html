@@ -214,28 +214,7 @@
             </div>
         </div>
     </div>
-    <!--推荐阅读-->
-    <div class="row">
-        <div class="col-md-12 post-container m-recommend-page">
-            <div class="row">
-                <div class="col-md-4">
-                    <a href="" class="thumbnail">
-                        <img src="assets/img/works.png" alt="作品展示">
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="" class="thumbnail">
-                        <img src="assets/img/study.png" alt="学习生活">
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="" class="thumbnail">
-                        <img src="assets/img/book.png" alt="作品推荐">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
+    
     <!-- 网站底部 -->
     <footer>
         <!--版权信息-->
@@ -269,7 +248,8 @@
         setTimeout(function() { NProgress.done(); $('.fade').removeClass('out'); }, 1000);
     })
     $($.post("page/all",function(data){
-    	let blogList = $.parseJSON(data);
+    	if($.parseJSON(data)["statusCode"] == "OK"){
+    	let blogList = $.parseJSON(data)["body"];
     	for(var i=0; i<blogList.length; i++){
     	    let container = $("#blogDiv");
     	    container.append(
@@ -328,8 +308,9 @@
 			        '</div>' +
 			    '</div>'
     	    );
-    	    hljs.initHighlightingOnLoad()
-    	}	
+    	    hljs.initHighlightingOnLoad();
+    		}
+    	}
     }));
     
     function formatDate(date) {
