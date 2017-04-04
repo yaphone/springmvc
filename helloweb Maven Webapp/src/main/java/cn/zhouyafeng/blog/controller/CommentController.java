@@ -8,7 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
@@ -23,9 +23,17 @@ public class CommentController {
 	@Resource
 	private ICommentService commentService;
 
-	@RequestMapping(value = "/comment/all/blog_id")
+	/**
+	 * 根据blogId获取一级评论
+	 * 
+	 * @author Email:zhouyaphone@163.com
+	 * @date 2017年4月4日 下午12:43:19
+	 * @param blogId
+	 * @return
+	 */
+	@RequestMapping(value = "/comment/all/blog_id", method = RequestMethod.POST)
 	@ResponseBody
-	public String getCommentDetailsByBlogId(@RequestParam("blogId") String blogId) {
+	public String getCommentDetailsByBlogId(String blogId) {
 		CommentSearchVo searchVo = new CommentSearchVo();
 		searchVo.setBlogId(Long.parseLong(blogId));
 		List<CommentDetailEntity> result = commentService.getCommentDetailsByBlogId(searchVo);

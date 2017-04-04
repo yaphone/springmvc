@@ -8,7 +8,7 @@
     <meta name="viewport" content="maximum-scale=1.0,width=device-width,initial-scale=1.0,user-scalable=no">
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <title>Yaphone's Blog </title>
+    <title>Yaphone</title>
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="assets/css/style.css" rel="stylesheet" />
     <link href="assets/css/nprogress.css" rel="stylesheet" />
@@ -56,7 +56,7 @@
                 </li>
                 <li>
                     <a href="blog.html">
-                        博客
+                        归档
                     </a>
                 </li>
                 <li>
@@ -144,7 +144,7 @@
     <footer>
         <!--版权信息-->
         <div class="copyright">
-            Copyright Ybsat ©2016 All rights reserved 豫ICP备15027119&nbsp;&nbsp;
+            Copyright yaphone ©2017 豫ICP备17002078号&nbsp;&nbsp;
             <a href="www.ybsat.com">
                 Theme leaves by Ybsat
             </a>
@@ -174,68 +174,68 @@
     })
     $($.post("page/all",function(data){
     	if($.parseJSON(data)["statusCode"] == "OK"){
-    	let blogList = $.parseJSON(data)["body"];
-    	for(var i=0; i<blogList.length; i++){
-    	    let container = $("#blogDiv");
-    	    container.append(
-		    	    '<div class="row">' +
-			        '<div class="col-md-12 post-container">' +
-			            '<h2 class="post-title">' +
-			            	'<input id="blog_id_' + blogList[i]["id"] + 
-			            	'" value="' + blogList[i]["id"] +
-			            	'" type="hidden">' +
-			                '<a href="content.html?id=' + blogList[i]["id"] +
-			                 '" title="">' + 
-			                	blogList[i]["title"] +
-			                '</a>' +
-			            '</h2>' + 
-			            '<div class="meta-box">' +
-			            '<span class="m-post-date">' +
-			              '<i class="fa fa-calendar-o">' +
-			              '</i>' +
-			              formatDate(new Date(blogList[i]["publishTime"]).toLocaleDateString()) +
-			            '</span>' + 
-			            '<span class="comments-link">' +
-			              '<a href="" class="ds-thread-count" data-thread-key="9500" title="Comment on 毕业两周年">' +
-			                  '<i class="fa fa-comments-o">' +
-			                  '</i>' +
-			                  '留言' +
-			              '</a>' +
-			            '</span>' +
-			            '</div>' + 
-			            '<div class="post-content">' + 
-			                '<p>' +
-			                    blogList[i]['content'] + 
-			                '</p>' +
-			            '</div>' +
-			            '<div class="meta-box">' +
-			            '<span class="cat-links">' +
-			              '<i class="fa fa-navicon">' +
-			              '</i>' +
-			              '<b>' +
-			                  '分类:' +
-			              '</b>' +
-			              '<a href="topics/life/diary.html">' +
-			                  blogList[i]['classify'] +
-			              '</a>' +
-			            '</span>' +
-			            '<span class="tag-links">' +
-			              '<i class="fa fa-tags">' +
-			              '</i>' +
-			              '<b>' +
-			                  '标签:' +
-			             '</b>' +
-			              '<a href="tags/毕业.html" rel="tag">' +
-			                  blogList[i]['keywords'] +
-			              '</a>' +
-			            '</span>' +
-			            '</div>' +
-			        '</div>' +
-			    '</div>'
-    	    );
-    	    hljs.initHighlightingOnLoad();
-    		}
-    	}
+	    	let blogList = $.parseJSON(data)["body"];
+	    	for(var i=0; i<blogList.length; i++){
+	    	    let container = $("#blogDiv");
+	    	    container.append(
+			    	    '<div class="row">' +
+				        '<div class="col-md-12 post-container">' +
+				            '<h2 class="post-title">' +
+				            	'<input id="blog_id_' + blogList[i]["id"] + 
+				            	'" value="' + blogList[i]["id"] +
+				            	'" type="hidden">' +
+				                '<a href="content.html?id=' + blogList[i]["id"] +
+				                 '" title="">' + 
+				                	blogList[i]["title"] +
+				                '</a>' +
+				            '</h2>' + 
+				            '<div class="meta-box">' +
+				            '<span class="m-post-date">' +
+				              '<i class="fa fa-calendar-o">' +
+				              '</i>' +
+				              formatDate(new Date(blogList[i]["publishTime"]).toLocaleDateString()) +
+				            '</span>' + 
+				            '<span class="comments-link">' +
+				              '<a href="" class="ds-thread-count" data-thread-key="9500" title="Comment on 毕业两周年">' +
+				                  '<i class="fa fa-comments-o">' +
+				                  '</i>' +
+				                  '留言' +
+				              '</a>' +
+				            '</span>' +
+				            '</div>' + 
+				            '<div class="post-content">' + 
+				                '<p>' +
+				                    blogList[i]['content'] + 
+				                '</p>' +
+				            '</div>' +
+				            '<div class="meta-box">' +
+				            '<span class="cat-links">' +
+				              '<i class="fa fa-navicon">' +
+				              '</i>' +
+				              '<b>' +
+				                  '分类:' +
+				              '</b>' +
+				              '<a href="topics/life/diary.html">' +
+				                  blogList[i]['classify'] +
+				              '</a>' +
+				            '</span>' +
+				            '<span class="tag-links">' +
+				              '<i class="fa fa-tags">' +
+				              '</i>' +
+				              '<b>' +
+				                  '标签:' +
+				             '</b>' +
+				              '<a href="tags/毕业.html" rel="tag">' +
+				                  blogList[i]['keywords'] +
+				              '</a>' +
+				            '</span>' +
+				            '</div>' +
+				        '</div>' +
+				    '</div>'
+	    	    );
+	    	    hljs.initHighlightingOnLoad();
+	    		}
+	    	}
     }));
     
     function formatDate(date) {
