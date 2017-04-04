@@ -230,7 +230,7 @@
     </div>
     <!-- 评论 -->
     <button id="comment_button" class="btn-lg btn-primary col-lg-12">评论</button> <!-- 展开/隐藏评论按钮 -->
-    <div class="row">
+    <div class="row" style="display:none"; id="comment_main" >
         <div class="col-md-12 post-container" id="comment_div">
         	<div  id="comment">
         		<!-- 评论内容 -->
@@ -354,7 +354,7 @@
     
     $(function(){ //展开/隐藏评论内容
         $("#comment_button").click(function(){
-            $("#comment_div").toggle(1000);
+            $("#comment_main").toggle(1000);
         });
     });
     
