@@ -2,14 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.zhouyafeng.blog.dao.CommentDetailEntityMapper" >
   <resultMap id="BaseResultMap" type="cn.zhouyafeng.blog.entity.CommentDetailEntity" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="comment_time" property="commentTime" jdbcType="TIMESTAMP" />
-    <result column="blog_id" property="blogId" jdbcType="INTEGER" />
-    <result column="email" property="email" jdbcType="VARCHAR" />
-    <result column="nickname" property="nickname" jdbcType="LONGVARCHAR" />
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="nick_name" property="nickName" jdbcType="CHAR" />
+    <result column="publish_time" property="publishTime" jdbcType="TIMESTAMP" />
+    <result column="email" property="email" jdbcType="CHAR" />
+    <result column="blog_id" property="blogId" jdbcType="BIGINT" />
     <result column="content" property="content" jdbcType="LONGVARCHAR" />
   </resultMap>
   <select id="getNextCommentId" resultType="Long">
   	SELECT AUTO_INCREMENT FROM information_schema.`TABLES` WHERE TABLE_SCHEMA='springmvc' AND TABLE_NAME='blog_comment';
+  </select>
+  
+  <select id="getCommentDetailsByBlogId" resultMap="BaseResultMap" parameterType="cn.zhouyafeng.blog.entity.vo.CommentSearchVo" >
+  	SELECT * FROM BLOG_COMMENT
+  	WHERE BLOG_ID = #{blogId}
   </select>
 </mapper>

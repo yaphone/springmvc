@@ -229,8 +229,22 @@
         </div>
     </div>
     <!-- 评论 -->
+    <button id="comment_button" class="btn-lg btn-primary col-lg-12">评论</button> <!-- 展开/隐藏评论按钮 -->
     <div class="row">
-        <div class="col-md-12 post-container">
+        <div class="col-md-12 post-container" id="comment_div">
+        	<div>
+        		<!-- 评论内容 -->
+        		<div>
+                    <p style="text-align:left; font-size:10px; color:green">
+                        <span><button class="head_icon"></button></span>
+                        <span style="color:red;">{{comment.nickname}}</span> 发表于
+                        <span style="color:black">{{comment.comment_time}}</span>
+                        <button value={{comment.id}} name="reply"> 回复 </button></p>
+                    <p>{{comment.content | custom_markdown}}</p>
+                </div>
+        	</div>
+        	<hr>
+        	<!-- 评论框 -->
             <div class="post-content">
                 <form method="post" action="comment/publish/one" id="form1" class="contact-form">
                     <div>
@@ -259,7 +273,7 @@
                             <label>内容*</label>
                         </span>
                         <span>
-                            <textarea name="content" class="textbox"></textarea>
+                            <textarea name="content" class="textbox" placeholder="评论支持markdown语法"></textarea>
                         </span>
                     </div>
                     <div>
@@ -338,14 +352,25 @@
         })
     );
 
-    //获取当前地址栏中的参数
-
-    function GetQueryString(name) {
+    function GetQueryString(name) {//获取当前地址栏中的参数
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
         var r = window.location.search.substr(1).match(reg);
         if (r != null)return unescape(r[2]);
         return null;
     }
+    
+    $(function(){ //展开/隐藏评论内容
+        $("#comment_button").click(function(){
+            $("#comment_div").toggle(1000);
+        });
+    });
+    
+    $(function(){ //获取一级评论
+    	debugger;
+    	$.post("comment/all/blog_id", function(data){
+    		alert($.parseJSON(data)["statusCode"]);
+    	});
+    })
 
 </script>
 </body>
