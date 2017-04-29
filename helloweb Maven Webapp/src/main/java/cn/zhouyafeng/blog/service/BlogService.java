@@ -1,4 +1,4 @@
-package cn.zhouyafeng.blog.impl;
+package cn.zhouyafeng.blog.service;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,11 +18,11 @@ import cn.zhouyafeng.blog.dao.BlogEntityMapper;
 import cn.zhouyafeng.blog.entity.BlogDetailEntity;
 import cn.zhouyafeng.blog.entity.BlogEntity;
 import cn.zhouyafeng.blog.entity.vo.BlogSearchVo;
-import cn.zhouyafeng.blog.service.IBlogService;
+import cn.zhouyafeng.blog.face.IBlogServiceFace;
 import cn.zhouyafeng.utils.MarkdownProcessor;
 
 @Service("blogService")
-public class BlogService implements IBlogService {
+public class BlogService implements IBlogServiceFace {
 
 	@Resource
 	private BlogEntityMapper blogEntityMapper;

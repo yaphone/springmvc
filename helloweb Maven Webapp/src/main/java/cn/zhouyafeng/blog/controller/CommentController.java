@@ -15,13 +15,13 @@ import com.alibaba.fastjson.JSON;
 
 import cn.zhouyafeng.blog.entity.CommentDetailEntity;
 import cn.zhouyafeng.blog.entity.vo.CommentSearchVo;
-import cn.zhouyafeng.blog.service.ICommentService;
+import cn.zhouyafeng.blog.face.ICommentServiceFace;
 
 @Controller
 public class CommentController {
 
 	@Resource
-	private ICommentService commentService;
+	private ICommentServiceFace commentService;
 
 	/**
 	 * 根据blogId获取一级评论

@@ -1,4 +1,4 @@
-package cn.zhouyafeng.blog.impl;
+package cn.zhouyafeng.blog.service;
 
 import java.util.Date;
 import java.util.List;
@@ -14,10 +14,10 @@ import cn.zhouyafeng.blog.entity.CommentDetailEntity;
 import cn.zhouyafeng.blog.entity.CommentEntity;
 import cn.zhouyafeng.blog.entity.CommentPublishVo;
 import cn.zhouyafeng.blog.entity.vo.CommentSearchVo;
-import cn.zhouyafeng.blog.service.ICommentService;
+import cn.zhouyafeng.blog.face.ICommentServiceFace;
 
 @Service("commentService")
-public class CommentService implements ICommentService {
+public class CommentService implements ICommentServiceFace {
 
 	@Resource
 	public CommentEntityMapper commentEntityMapper;

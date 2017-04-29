@@ -1,4 +1,4 @@
-package cn.zhouyafeng.blog.service;
+package cn.zhouyafeng.blog.face;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import cn.zhouyafeng.blog.entity.CommentDetailEntity;
 import cn.zhouyafeng.blog.entity.CommentPublishVo;
 import cn.zhouyafeng.blog.entity.vo.CommentSearchVo;
 
-public interface ICommentService {
+public interface ICommentServiceFace {
 	/**
 	 * ÐÂ½¨ÆÀÂÛ
 	 * 

@@ -1,4 +1,4 @@
-package cn.zhouyafeng.blog.service;
+package cn.zhouyafeng.blog.face;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import cn.zhouyafeng.blog.entity.BlogDetailEntity;
 import cn.zhouyafeng.blog.entity.BlogEntity;
 import cn.zhouyafeng.blog.entity.vo.BlogSearchVo;
 
-public interface IBlogService {
+public interface IBlogServiceFace {
 	/**
 	 * 根据ID获取博文
 	 * 

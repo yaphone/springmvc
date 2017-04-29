@@ -1,4 +1,4 @@
-package cn.zhouyafeng.blog.service;
+package cn.zhouyafeng.blog.face;
 
 /**
  * 微信服务接口(itchat4j)
@@ -8,7 +8,7 @@ package cn.zhouyafeng.blog.service;
  * @version 1.0
  *
  */
-public interface IWechatService {
+public interface IWechatServiceFace {
 	/**
 	 * 登陆
 	 * 

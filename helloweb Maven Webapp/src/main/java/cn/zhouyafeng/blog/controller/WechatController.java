@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
 
-import cn.zhouyafeng.blog.service.IWechatService;
+import cn.zhouyafeng.blog.face.IWechatServiceFace;
 
 @Controller
 public class WechatController {
 	@Resource
-	private IWechatService wechatService;
+	private IWechatServiceFace wechatService;
 
 	@RequestMapping(value = "/wechat")
 	@ResponseBody

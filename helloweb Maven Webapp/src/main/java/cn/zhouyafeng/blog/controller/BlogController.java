@@ -21,15 +21,15 @@ import com.github.rjeschke.txtmark.Processor;
 import cn.zhouyafeng.blog.entity.BlogDetailEntity;
 import cn.zhouyafeng.blog.entity.BlogEntity;
 import cn.zhouyafeng.blog.entity.CommentPublishVo;
-import cn.zhouyafeng.blog.service.IBlogService;
-import cn.zhouyafeng.blog.service.ICommentService;
+import cn.zhouyafeng.blog.face.IBlogServiceFace;
+import cn.zhouyafeng.blog.face.ICommentServiceFace;
 
 @Controller
 public class BlogController {
 	@Resource
-	private IBlogService blogService;
+	private IBlogServiceFace blogService;
 	@Resource
-	private ICommentService commentService;
+	private ICommentServiceFace commentService;
 
 	@RequestMapping(value = "/page/all", produces = "text/html;charset=UTF-8")
 	@ResponseBody

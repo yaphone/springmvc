@@ -10,13 +10,13 @@ import com.github.rjeschke.txtmark.Processor;
 import cn.zhouyafeng.blog.entity.BlogDetailEntity;
 import cn.zhouyafeng.blog.entity.BlogEntity;
 import cn.zhouyafeng.blog.entity.vo.BlogSearchVo;
-import cn.zhouyafeng.blog.service.IBlogService;
+import cn.zhouyafeng.blog.face.IBlogServiceFace;
 import cn.zhouyafeng.test.component.BaseJunitTest;
 
 public class BlogUnitTest extends BaseJunitTest {
 
 	@Resource
-	private IBlogService blogService;
+	private IBlogServiceFace blogService;
 
 	// @Test
 	public void JacksonUtilTest() {
