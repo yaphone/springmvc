@@ -29,5 +29,10 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/markdown4j.jar"/>
+	<classpathentry kind="lib" path="C:/Users/zhouy/Desktop/itchat4j-0.0.1-jar-with-dependencies.jar" sourcepath="C:/Users/zhouy/Desktop/itchat4j-0.0.1-src.zip">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

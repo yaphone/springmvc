@@ -12,7 +12,6 @@ import cn.zhouyafeng.blog.entity.BlogEntity;
 import cn.zhouyafeng.blog.entity.vo.BlogSearchVo;
 import cn.zhouyafeng.blog.service.IBlogService;
 import cn.zhouyafeng.test.component.BaseJunitTest;
-import cn.zhouyafeng.utils.JackSonUtils;
 
 public class BlogUnitTest extends BaseJunitTest {
 
@@ -25,7 +24,7 @@ public class BlogUnitTest extends BaseJunitTest {
 		String content = blog.getContent();
 		String result = null;
 		try {
-			result = JackSonUtils.obj2json(blog);
+			result = JSON.toJSONString(blog);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
